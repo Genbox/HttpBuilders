@@ -1,0 +1,47 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <NoLogo>true</NoLogo>
+    <FileAlignment>512</FileAlignment>
+    <NoVBRuntimeReference>true</NoVBRuntimeReference>
+    <Utf8Output>true</Utf8Output>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <WarningsAsErrors>CS0108,CS0109,CS0114,CS0162,CS0251,CS0659,CS0660,CS1717,CS1718</WarningsAsErrors>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\Global.ruleset</CodeAnalysisRuleSet>
+    <RepositoryType>Git</RepositoryType>
+    <Copyright>Copyright 2019, by Ian Qvist. All rights reserved.</Copyright>
+    <Authors>Ian Qvist</Authors>
+    
+    <!--SourceLink stuff-->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <Version>0.1.0-alpha1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="2.9.3" PrivateAssets="all" />
+    <PackageReference Include="IDisposableAnalyzers" Version="2.1.2" PrivateAssets="all" />
+    <PackageReference Include="Roslynator.Analyzers" Version="2.1.0" PrivateAssets="all" />
+    <PackageReference Include="ToStringWithoutOverrideAnalyzer" Version="0.6.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+</Project>
