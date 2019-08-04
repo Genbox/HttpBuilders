@@ -9,17 +9,18 @@ namespace HttpBuilders.Examples
     {
         static async Task Main(string[] args)
         {
-            HttpClient client = new HttpClient();
+            using (HttpClient client = new HttpClient())
+            {
+                AcceptEncodingBuilder acceptEncoding = new AcceptEncodingBuilder();
+                acceptEncoding.Add(AcceptEncodingType.Gzip);
+                acceptEncoding.Add(AcceptEncodingType.Compress, 0.5f);
 
-            AcceptEncodingBuilder acceptEncoding = new AcceptEncodingBuilder();
-            acceptEncoding.Add(AcceptEncodingType.Gzip);
-            acceptEncoding.Add(AcceptEncodingType.Compress, 0.5f);
+                client.DefaultRequestHeaders.Add("Accept-Encoding", acceptEncoding.Build());
 
-            client.DefaultRequestHeaders.Add("Accept-Encoding", acceptEncoding.Build());
+                string echo = await client.GetStringAsync(new Uri("http://scooterlabs.com/echo"));
 
-            string echo = await client.GetStringAsync("http://scooterlabs.com/echo");
-
-            Console.WriteLine(echo);
+                Console.WriteLine(echo);
+            }
         }
     }
 }
