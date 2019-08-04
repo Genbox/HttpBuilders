@@ -1,6 +1,11 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
+    <Authors>Ian Qvist</Authors>
+    <Copyright>Copyright 2019, by Ian Qvist. All rights reserved.</Copyright>
+    <Description>A strongly typed API for HTTP headers</Description>
+    <Version>0.1.0-alpha3</Version>
+
     <LangVersion>latest</LangVersion>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <NoLogo>true</NoLogo>
@@ -12,21 +17,16 @@
     <WarningsAsErrors>CS0108,CS0109,CS0114,CS0162,CS0251,CS0659,CS0660,CS1717,CS1718</WarningsAsErrors>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\Global.ruleset</CodeAnalysisRuleSet>
     <RepositoryType>Git</RepositoryType>
-    <Copyright>Copyright 2019, by Ian Qvist. All rights reserved.</Copyright>
-    <Authors>Ian Qvist</Authors>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RootNamespace>Genbox.$(MSBuildProjectName)</RootNamespace>
     <AssemblyName>Genbox.$(MSBuildProjectName)</AssemblyName>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-
-    <Description>A strongly typed API for HTTP headers</Description>
+    <PackageProjectUrl>https://github.com/Genbox/$(MSBuildProjectName)</PackageProjectUrl>
 
     <!--SourceLink stuff-->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-
-    <Version>0.1.0-alpha2</Version>
   </PropertyGroup>
 
   <ItemGroup>
