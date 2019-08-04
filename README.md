@@ -1,6 +1,6 @@
 # HttpBuilders - A strongly typed API for HTTP headers
 
-[![NuGet](https://img.shields.io/nuget/v/HttpBuilders.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/HttpBuilders/)
+[![NuGet](https://img.shields.io/nuget/v/Genbox.HttpBuilders.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/Genbox.HttpBuilders/)
 
 ### Description
 Provides a strongly typed APT for HTTP headers. HTTP has support for many headers, each with their own syntax and rules. For example, the [HTTP Range header](https://tools.ietf.org/html/rfc7233#section-3.1) says that a server can choose to reject your message if you send duplicate ranges, or if the ranges are not ordered. Adding ranges manually via `bytes=1-40` works fine, until you need to programmically add ranges, then suddenly you need a lot of code to parse and construct the headers.
