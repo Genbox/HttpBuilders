@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using HttpBuilders.Enums;
+using Genbox.HttpBuilders.Enums;
 
-namespace HttpBuilders.Examples
+namespace Genbox.HttpBuilders.Examples
 {
     class Program
     {

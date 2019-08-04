@@ -1,4 +1,4 @@
-﻿namespace HttpBuilders.Abstracts
+﻿namespace Genbox.HttpBuilders.Abstracts
 {
     public interface IHttpHeaderBuilder
     {

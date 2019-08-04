@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
-using HttpBuilders.Abstracts;
-using HttpBuilders.Internal;
-using HttpBuilders.Internal.Collections;
-using HttpBuilders.Options;
+using Genbox.HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.Internal;
+using Genbox.HttpBuilders.Internal.Collections;
+using Genbox.HttpBuilders.Options;
 using Microsoft.Extensions.Options;
 
-namespace HttpBuilders
+namespace Genbox.HttpBuilders
 {
     /// <summary>
     /// Builder for HTTP Range.

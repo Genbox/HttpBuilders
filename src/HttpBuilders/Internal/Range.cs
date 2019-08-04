@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HttpBuilders.Internal
+namespace Genbox.HttpBuilders.Internal
 {
     internal struct Range
     {

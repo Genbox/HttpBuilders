@@ -1,3 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("HttpBuilders.Tests")]
+[assembly: InternalsVisibleTo("Genbox.HttpBuilders.Tests")]

@@ -14,7 +14,11 @@
     <RepositoryType>Git</RepositoryType>
     <Copyright>Copyright 2019, by Ian Qvist. All rights reserved.</Copyright>
     <Authors>Ian Qvist</Authors>
+    <RootNamespace>Genbox.$(MSBuildProjectName)</RootNamespace>
+    <AssemblyName>Genbox.$(MSBuildProjectName)</AssemblyName>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+
+    <Description>A strongly typed API for HTTP headers</Description>
 
     <!--SourceLink stuff-->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>

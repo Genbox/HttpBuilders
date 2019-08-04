@@ -1,7 +1,7 @@
-﻿using HttpBuilders.Enums;
+﻿using Genbox.HttpBuilders.Enums;
 using Xunit;
 
-namespace HttpBuilders.Tests.Builders
+namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class ContentLanguageBuilderTests
     {

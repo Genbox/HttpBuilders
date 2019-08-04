@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Text;
 using EnumsNET;
-using HttpBuilders.Abstracts;
-using HttpBuilders.Enums;
-using HttpBuilders.Options;
+using Genbox.HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Options;
 using Microsoft.Extensions.Options;
 
-namespace HttpBuilders
+namespace Genbox.HttpBuilders
 {
     /// <summary>
     /// The "Cache-Control" header field is used to specify directives for caches along the request/response chain.

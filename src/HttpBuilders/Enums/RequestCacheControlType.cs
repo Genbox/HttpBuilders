@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HttpBuilders.Enums
+namespace Genbox.HttpBuilders.Enums
 {
     public enum RequestCacheControlType
     {

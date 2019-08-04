@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.Abstracts;
 using Xunit;
 
-namespace HttpBuilders.Tests.Builders
+namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class GenericBuilderTests
     {

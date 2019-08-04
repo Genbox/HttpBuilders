@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
-using HttpBuilders.Internal;
-using HttpBuilders.Internal.Collections;
+﻿using Genbox.HttpBuilders.Internal;
+using Genbox.HttpBuilders.Internal.Collections;
 using Xunit;
 
-namespace HttpBuilders.Tests.Internal
+namespace Genbox.HttpBuilders.Tests.Internal
 {
     public class ConstantGrowArrayTests
     {

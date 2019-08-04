@@ -1,9 +1,9 @@
 ﻿using System;
-using HttpBuilders.Enums;
-using HttpBuilders.Options;
+using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Options;
 using Xunit;
 
-namespace HttpBuilders.Tests.Builders
+namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class ContentDispositionBuilderTests
     {

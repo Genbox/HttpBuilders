@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HttpBuilders.Internal.Collections
+namespace Genbox.HttpBuilders.Internal.Collections
 {
     /// <summary>
     /// An array that is lazy initialized with a configurable absolute growth factor.

@@ -1,4 +1,4 @@
-﻿namespace HttpBuilders.Options
+﻿namespace Genbox.HttpBuilders.Options
 {
     public class AcceptEncodingBuilderOptions
     {

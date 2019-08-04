@@ -1,6 +1,6 @@
-﻿using HttpBuilders.Enums;
+﻿using Genbox.HttpBuilders.Enums;
 
-namespace HttpBuilders.Options
+namespace Genbox.HttpBuilders.Options
 {
     public class ContentDispositionBuilderOptions
     {

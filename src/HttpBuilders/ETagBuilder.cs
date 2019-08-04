@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.Abstracts;
 
-namespace HttpBuilders
+namespace Genbox.HttpBuilders
 {
     /// <summary>
     /// Builds an ETag according to RFC7232. See https://tools.ietf.org/html/rfc7232#section-2.3

@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using EnumsNET;
-using HttpBuilders.Abstracts;
-using HttpBuilders.Enums;
-using HttpBuilders.Internal.Collections;
+using Genbox.HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Internal.Collections;
 
-namespace HttpBuilders
+namespace Genbox.HttpBuilders
 {
     /// <summary>
     /// For weight, see https://developer.mozilla.org/en-US/docs/Glossary/Quality_values

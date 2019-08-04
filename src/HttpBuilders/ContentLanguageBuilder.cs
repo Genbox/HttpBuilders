@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using EnumsNET;
-using HttpBuilders.Abstracts;
-using HttpBuilders.Enums;
-using HttpBuilders.Internal.Collections;
+using Genbox.HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Internal.Collections;
 
-namespace HttpBuilders
+namespace Genbox.HttpBuilders
 {
     /// <summary>
     /// The Content-Language entity header is used to describe the language(s) intended for the audience, so that it allows a user to differentiate according to the users' own preferred language.

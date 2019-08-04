@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.Abstracts;
 
-namespace HttpBuilders
+namespace Genbox.HttpBuilders
 {
     public class ContentTypeBuilder : IHttpHeaderBuilder
     {

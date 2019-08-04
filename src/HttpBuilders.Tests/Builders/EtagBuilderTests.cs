@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace HttpBuilders.Tests.Builders
+namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class EtagBuilderTests
     {

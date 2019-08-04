@@ -1,7 +1,7 @@
-﻿using HttpBuilders.Options;
+﻿using Genbox.HttpBuilders.Options;
 using Xunit;
 
-namespace HttpBuilders.Tests.Builders
+namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class HttpRangeBuilderTests
     {
