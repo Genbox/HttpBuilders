@@ -4,6 +4,7 @@ using EnumsNET;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
 using Genbox.HttpBuilders.Internal.Collections;
+using Genbox.HttpBuilders.Internal.Extensions;
 
 namespace Genbox.HttpBuilders
 {
