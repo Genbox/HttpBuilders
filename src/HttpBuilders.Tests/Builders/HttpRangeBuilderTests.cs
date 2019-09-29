@@ -1,4 +1,4 @@
-﻿using Genbox.HttpBuilders.Options;
+﻿using Genbox.HttpBuilders.BuilderOptions;
 using Xunit;
 
 namespace Genbox.HttpBuilders.Tests.Builders
@@ -7,7 +7,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
     {
         private RangeBuilder CreateBuilder()
         {
-            return new RangeBuilder(Microsoft.Extensions.Options.Options.Create(new RangeBuilderOptions
+            return new RangeBuilder(Microsoft.Extensions.Options.Options.Create(new RangeOptions
             {
                 MergeOverlappingRanges = false,
                 ShortenRanges = false,

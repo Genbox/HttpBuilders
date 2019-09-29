@@ -9,11 +9,16 @@ using Genbox.HttpBuilders.Internal.Extensions;
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// For weight, see https://developer.mozilla.org/en-US/docs/Glossary/Quality_values
+    /// The Content-Encoding entity header is used to compress the media-type. When present, its value indicates which
+    /// encodings were applied to the entity-body. It lets the client know how to decode in order to obtain the media-type
+    /// referenced by the Content-Type header.
+    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
     /// </summary>
     public class ContentEncodingBuilder : IHttpHeaderBuilder
     {
         private ConstantGrowArray<ContentEncodingType> _encodings;
+
+        public string HeaderName => "Content-Encoding";
 
         public string Build()
         {

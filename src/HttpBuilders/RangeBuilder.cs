@@ -2,17 +2,21 @@
 using System.Collections;
 using System.Text;
 using Genbox.HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Internal;
 using Genbox.HttpBuilders.Internal.Collections;
-using Genbox.HttpBuilders.Options;
 using Microsoft.Extensions.Options;
 
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// Builder for HTTP Range.
-    /// RFC: https://tools.ietf.org/html/rfc7233#section-3.1
-    /// See https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests and
+    /// The Range HTTP request header indicates the part of a document that the server should return. Several parts can be
+    /// requested with one Range header at once, and the server may send back these ranges in a multipart document. If the
+    /// server sends back ranges, it uses the 206 Partial Content for the response. If the ranges are invalid, the server
+    /// returns the 416 Range Not Satisfiable error. The server can also ignore the Range header and return the whole document
+    /// with a 200 status code.
+    /// This builder creates a range according to RFC 7233, see https://tools.ietf.org/html/rfc7233#section-3.1
+    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests and
     /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range
     /// </summary>
     public class RangeBuilder : IHttpHeaderBuilder
@@ -23,15 +27,17 @@ namespace Genbox.HttpBuilders
 
         public RangeBuilder()
         {
-            Options = Microsoft.Extensions.Options.Options.Create(new RangeBuilderOptions());
+            Options = Microsoft.Extensions.Options.Options.Create(new RangeOptions());
         }
 
-        public RangeBuilder(IOptions<RangeBuilderOptions> options)
+        public RangeBuilder(IOptions<RangeOptions> options)
         {
             Options = options;
         }
 
-        public IOptions<RangeBuilderOptions> Options { get; }
+        public IOptions<RangeOptions> Options { get; }
+
+        public string HeaderName => "Range";
 
         public string Build()
         {

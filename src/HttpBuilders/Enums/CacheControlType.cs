@@ -2,7 +2,7 @@
 
 namespace Genbox.HttpBuilders.Enums
 {
-    public enum RequestCacheControlType
+    public enum CacheControlType
     {
         Unknown = 0,
 

@@ -1,6 +1,6 @@
 ﻿using System;
+using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Enums;
-using Genbox.HttpBuilders.Options;
 using Xunit;
 
 namespace Genbox.HttpBuilders.Tests.Builders
@@ -9,7 +9,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
     {
         private ContentDispositionBuilder CreateBuilder()
         {
-            return new ContentDispositionBuilder(Microsoft.Extensions.Options.Options.Create(new ContentDispositionBuilderOptions
+            return new ContentDispositionBuilder(Microsoft.Extensions.Options.Options.Create(new ContentDispositionOptions
             {
                 UseExtendedFilename = false,
                 OmitDefaultDisposition = false

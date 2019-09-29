@@ -2,15 +2,19 @@
 using System.Text;
 using EnumsNET;
 using Genbox.HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Enums;
 using Genbox.HttpBuilders.Internal.Collections;
-using Genbox.HttpBuilders.Options;
 using Microsoft.Extensions.Options;
 
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// For weight, see https://developer.mozilla.org/en-US/docs/Glossary/Quality_values
+    /// The Accept-Encoding request HTTP header advertises which content encoding, usually a compression algorithm, the client
+    /// is able to understand. Using content negotiation, the server selects one of the proposals, uses it and informs the
+    /// client of its choice with the Content-Encoding response header.
+    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
+    /// For info on weights, see https://developer.mozilla.org/en-US/docs/Glossary/Quality_values
     /// </summary>
     public class AcceptEncodingBuilder : IHttpHeaderBuilder
     {
@@ -18,15 +22,17 @@ namespace Genbox.HttpBuilders
 
         public AcceptEncodingBuilder()
         {
-            Options = Microsoft.Extensions.Options.Options.Create(new AcceptEncodingBuilderOptions());
+            Options = Microsoft.Extensions.Options.Options.Create(new AcceptEncodingOptions());
         }
 
-        public AcceptEncodingBuilder(IOptions<AcceptEncodingBuilderOptions> options)
+        public AcceptEncodingBuilder(IOptions<AcceptEncodingOptions> options)
         {
             Options = options;
         }
 
-        public IOptions<AcceptEncodingBuilderOptions> Options { get; }
+        public IOptions<AcceptEncodingOptions> Options { get; }
+
+        public string HeaderName => "Accept-Encoding";
 
         public string Build()
         {

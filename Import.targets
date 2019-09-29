@@ -4,7 +4,7 @@
     <Authors>Ian Qvist</Authors>
     <Copyright>Copyright 2019, by Ian Qvist. All rights reserved.</Copyright>
     <Description>A strongly typed API for HTTP headers</Description>
-    <Version>0.1.0-alpha5</Version>
+    <Version>0.1.0-alpha6</Version>
 
     <LangVersion>latest</LangVersion>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>

@@ -1,6 +1,6 @@
-﻿namespace Genbox.HttpBuilders.Options
+﻿namespace Genbox.HttpBuilders.BuilderOptions
 {
-    public class AcceptEncodingBuilderOptions
+    public class AcceptEncodingOptions
     {
         /// <summary>
         /// Omit weights of 1.0 as it is the default weight if not otherwise defined

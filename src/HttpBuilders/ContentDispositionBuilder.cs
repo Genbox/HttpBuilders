@@ -2,14 +2,20 @@
 using System.Text;
 using EnumsNET;
 using Genbox.HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Enums;
-using Genbox.HttpBuilders.Options;
 using Microsoft.Extensions.Options;
 
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// The "Cache-Control" header field is used to specify directives for caches along the request/response chain.
+    /// In a regular HTTP response, the Content-Disposition response header is a header indicating if the content is expected
+    /// to be displayed inline in the browser, that is, as a Web page or as part of a Web page, or as an attachment, that is
+    /// downloaded and saved locally.
+    /// In a multipart/form-data body, the HTTP Content-Disposition general header is a header that can be used on the
+    /// subpart of a multipart body to give information about the field it applies to. The subpart is delimited by the boundary
+    /// defined in the Content-Type header. Used on the body itself, Content-Disposition has no effect.
+    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition
     /// </summary>
     public class ContentDispositionBuilder : IHttpHeaderBuilder
     {
@@ -18,15 +24,17 @@ namespace Genbox.HttpBuilders
 
         public ContentDispositionBuilder()
         {
-            Options = Microsoft.Extensions.Options.Options.Create(new ContentDispositionBuilderOptions());
+            Options = Microsoft.Extensions.Options.Options.Create(new ContentDispositionOptions());
         }
 
-        public ContentDispositionBuilder(IOptions<ContentDispositionBuilderOptions> options)
+        public ContentDispositionBuilder(IOptions<ContentDispositionOptions> options)
         {
             Options = options;
         }
 
-        public IOptions<ContentDispositionBuilderOptions> Options { get; }
+        public IOptions<ContentDispositionOptions> Options { get; }
+
+        public string HeaderName => "Content-Disposition";
 
         public string Build()
         {

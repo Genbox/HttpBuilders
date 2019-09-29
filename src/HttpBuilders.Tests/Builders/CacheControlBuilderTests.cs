@@ -10,7 +10,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
         public void WithArgument()
         {
             CacheControlBuilder b = new CacheControlBuilder();
-            b.Set(RequestCacheControlType.MaxAge, 42);
+            b.Set(CacheControlType.MaxAge, 42);
 
             Assert.Equal("max-age=42", b.Build());
         }
@@ -19,7 +19,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
         public void WithoutArgument()
         {
             CacheControlBuilder b = new CacheControlBuilder();
-            b.Set(RequestCacheControlType.NoCache);
+            b.Set(CacheControlType.NoCache);
 
             Assert.Equal("no-cache", b.Build());
         }
@@ -28,7 +28,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
         public void WithoutArgumentFail()
         {
             CacheControlBuilder b = new CacheControlBuilder();
-            Assert.Throws<ArgumentException>(() => b.Set(RequestCacheControlType.NoCache, 42));
+            Assert.Throws<ArgumentException>(() => b.Set(CacheControlType.NoCache, 42));
         }
     }
 }

@@ -3,11 +3,20 @@ using Genbox.HttpBuilders.Abstracts;
 
 namespace Genbox.HttpBuilders
 {
+    /// <summary>
+    /// The Content-Type entity header is used to indicate the media type of the resource. In responses, a Content-Type header
+    /// tells the client what the content type of the returned content actually is. Browsers will do MIME sniffing in some
+    /// cases and will not necessarily follow the value of this header; to prevent this behavior, the header
+    /// X-Content-Type-Options can be set to nosniff.
+    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
+    /// </summary>
     public class ContentTypeBuilder : IHttpHeaderBuilder
     {
         private string _boundary;
         private string _charset;
         private string _mediaType;
+
+        public string HeaderName => "Content-Type";
 
         public string Build()
         {

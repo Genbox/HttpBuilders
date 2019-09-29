@@ -1,6 +1,6 @@
-﻿namespace Genbox.HttpBuilders.Options
+﻿namespace Genbox.HttpBuilders.BuilderOptions
 {
-    public class RangeBuilderOptions
+    public class RangeOptions
     {
         /// <summary>
         /// As specified in RFC7233, a server may reject a request if there are overlapping ranges. This option ensure that ranges
