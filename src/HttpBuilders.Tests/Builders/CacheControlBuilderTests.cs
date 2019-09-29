@@ -4,12 +4,12 @@ using Xunit;
 
 namespace Genbox.HttpBuilders.Tests.Builders
 {
-    public class RequestCacheControlBuilderTests
+    public class CacheControlBuilderTests
     {
         [Fact]
         public void WithoutArgument()
         {
-            RequestCacheControlBuilder b = new RequestCacheControlBuilder();
+            CacheControlBuilder b = new CacheControlBuilder();
             b.Set(RequestCacheControlType.NoCache);
 
             Assert.Equal("no-cache", b.Build());
@@ -18,14 +18,14 @@ namespace Genbox.HttpBuilders.Tests.Builders
         [Fact]
         public void WithoutArgumentFail()
         {
-            RequestCacheControlBuilder b = new RequestCacheControlBuilder();
+            CacheControlBuilder b = new CacheControlBuilder();
             Assert.Throws<ArgumentException>(() => b.Set(RequestCacheControlType.NoCache, 42));
         }
 
         [Fact]
         public void WithArgument()
         {
-            RequestCacheControlBuilder b = new RequestCacheControlBuilder();
+            CacheControlBuilder b = new CacheControlBuilder();
             b.Set(RequestCacheControlType.MaxAge, 42);
 
             Assert.Equal("max-age=42", b.Build());

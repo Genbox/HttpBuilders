@@ -9,7 +9,7 @@ namespace Genbox.HttpBuilders
     /// <summary>
     /// The "Cache-Control" header field is used to specify directives for caches along the request/response chain.
     /// </summary>
-    public class RequestCacheControlBuilder : IHttpHeaderBuilder
+    public class CacheControlBuilder : IHttpHeaderBuilder
     {
         private RequestCacheControlType _type;
         private int _seconds;
