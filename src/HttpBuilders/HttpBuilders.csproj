@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Enums.NET" Version="2.3.2" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.0.0" />
   </ItemGroup>
 
 </Project>
