@@ -12,13 +12,14 @@ namespace Genbox.HttpBuilders
     /// <summary>
     /// Builder for HTTP Range.
     /// RFC: https://tools.ietf.org/html/rfc7233#section-3.1
-    /// See https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests and https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range
+    /// See https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests and
+    /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range
     /// </summary>
     public class RangeBuilder : IHttpHeaderBuilder
     {
-        private ConstantGrowArray<Range> _ranges;
-        private BitArray _invalidIndex;
         private int _invalidCount;
+        private BitArray _invalidIndex;
+        private ConstantGrowArray<Range> _ranges;
 
         public RangeBuilder()
         {
@@ -32,6 +33,11 @@ namespace Genbox.HttpBuilders
 
         public IOptions<RangeBuilderOptions> Options { get; }
 
+        public string Build()
+        {
+            return Build("bytes");
+        }
+
         public RangeBuilder Add(long start, long end)
         {
             if (_ranges == null)
@@ -40,11 +46,6 @@ namespace Genbox.HttpBuilders
             _ranges.Add(new Range(start, end));
 
             return this;
-        }
-
-        public string Build()
-        {
-            return Build("bytes");
         }
 
         public string Build(string unit = "bytes", long dataSize = -1)
@@ -88,13 +89,14 @@ namespace Genbox.HttpBuilders
                             ReportInvalid(i);
                         }
                         else
+                        {
                             pointer++;
+                        }
                     }
                 }
             }
 
             if (Options.Value.DiscardInvalidRanges)
-            {
                 for (int i = 0; i < _ranges.Count; i++)
                 {
                     ref Range range = ref _ranges[i];
@@ -105,7 +107,6 @@ namespace Genbox.HttpBuilders
                     if (dataSize > 0 && range.End > dataSize)
                         ReportInvalid(i);
                 }
-            }
 
             //All the ranges where invalid
             if (_ranges.Count == _invalidCount)

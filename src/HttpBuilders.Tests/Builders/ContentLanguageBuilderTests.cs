@@ -6,11 +6,12 @@ namespace Genbox.HttpBuilders.Tests.Builders
     public class ContentLanguageBuilderTests
     {
         [Fact]
-        public void SingleLanguage()
+        public void EnumLanguages()
         {
             ContentLanguageBuilder b = new ContentLanguageBuilder();
-            b.Add("da-DK");
-            Assert.Equal("da-DK", b.Build());
+            b.Add(Language.French);
+            b.Add(Language.German);
+            Assert.Equal("fr, de", b.Build());
         }
 
         [Fact]
@@ -23,12 +24,11 @@ namespace Genbox.HttpBuilders.Tests.Builders
         }
 
         [Fact]
-        public void EnumLanguages()
+        public void SingleLanguage()
         {
             ContentLanguageBuilder b = new ContentLanguageBuilder();
-            b.Add(Language.French);
-            b.Add(Language.German);
-            Assert.Equal("fr, de", b.Build());
+            b.Add("da-DK");
+            Assert.Equal("da-DK", b.Build());
         }
     }
 }

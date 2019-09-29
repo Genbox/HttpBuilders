@@ -11,16 +11,8 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class CacheControlBuilder : IHttpHeaderBuilder
     {
-        private RequestCacheControlType _type;
         private int _seconds;
-
-        public void Set(RequestCacheControlType type, int seconds = -1)
-        {
-            CheckOptionalArgument(type, seconds);
-
-            _type = type;
-            _seconds = seconds;
-        }
+        private RequestCacheControlType _type;
 
         public string Build()
         {
@@ -36,10 +28,17 @@ namespace Genbox.HttpBuilders
             return sb.ToString();
         }
 
+        public void Set(RequestCacheControlType type, int seconds = -1)
+        {
+            CheckOptionalArgument(type, seconds);
+
+            _type = type;
+            _seconds = seconds;
+        }
+
         private void CheckOptionalArgument(RequestCacheControlType type, int seconds)
         {
             if (seconds <= -1)
-            {
                 switch (type)
                 {
                     case RequestCacheControlType.MaxAge:
@@ -47,9 +46,7 @@ namespace Genbox.HttpBuilders
                     case RequestCacheControlType.MinFresh:
                         throw new ArgumentException("You must supply an argument in seconds", nameof(type));
                 }
-            }
             else
-            {
                 switch (type)
                 {
                     case RequestCacheControlType.NoCache:
@@ -58,7 +55,6 @@ namespace Genbox.HttpBuilders
                     case RequestCacheControlType.OnlyIfCached:
                         throw new ArgumentException("You supplied seconds to a cache type that does not support it", nameof(type));
                 }
-            }
         }
     }
 }

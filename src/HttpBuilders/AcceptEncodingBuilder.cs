@@ -28,16 +28,6 @@ namespace Genbox.HttpBuilders
 
         public IOptions<AcceptEncodingBuilderOptions> Options { get; }
 
-        public AcceptEncodingBuilder Add(AcceptEncodingType encoding, float weight = 1.0f)
-        {
-            if (_encodings == null)
-                _encodings = new ConstantGrowArray<(AcceptEncodingType, float)>(1);
-
-            _encodings.Add((encoding, weight));
-
-            return this;
-        }
-
         public string Build()
         {
             if (_encodings == null)
@@ -59,6 +49,16 @@ namespace Genbox.HttpBuilders
             }
 
             return sb.ToString();
+        }
+
+        public AcceptEncodingBuilder Add(AcceptEncodingType encoding, float weight = 1.0f)
+        {
+            if (_encodings == null)
+                _encodings = new ConstantGrowArray<(AcceptEncodingType, float)>(1);
+
+            _encodings.Add((encoding, weight));
+
+            return this;
         }
     }
 }

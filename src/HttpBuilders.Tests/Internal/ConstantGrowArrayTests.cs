@@ -7,6 +7,17 @@ namespace Genbox.HttpBuilders.Tests.Internal
     public class ConstantGrowArrayTests
     {
         [Fact]
+        public void Enumerator()
+        {
+            ConstantGrowArray<int> a = new ConstantGrowArray<int>(1);
+            a.Add(1);
+            a.Add(2);
+            a.Add(3);
+
+            Assert.Contains(a, i => i == 1 || i == 2 || i == 3);
+        }
+
+        [Fact]
         public void General()
         {
             ConstantGrowArray<Range> a = new ConstantGrowArray<Range>(1, Range.Comparer);
@@ -32,17 +43,6 @@ namespace Genbox.HttpBuilders.Tests.Internal
             a.Add(new Range(3, 20));
 
             Assert.False(a.Sorted);
-        }
-
-        [Fact]
-        public void Enumerator()
-        {
-            ConstantGrowArray<int> a = new ConstantGrowArray<int>(1);
-            a.Add(1);
-            a.Add(2);
-            a.Add(3);
-
-            Assert.Contains(a, i => i == 1 || i == 2 || i == 3);
         }
     }
 }

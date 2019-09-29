@@ -6,15 +6,6 @@ namespace Genbox.HttpBuilders.Tests.Internal
     public class RangeTests
     {
         [Fact]
-        public void Equality()
-        {
-            Range a = new Range(1, 2);
-            Range b = new Range(1, 2);
-
-            Assert.Equal(a, b);
-        }
-
-        [Fact]
         public void Comparer()
         {
             Range a = new Range(0, 0);
@@ -26,6 +17,15 @@ namespace Genbox.HttpBuilders.Tests.Internal
             Assert.Equal(-1, Range.Comparer.Compare(a, c));
             Assert.Equal(1, Range.Comparer.Compare(b, a));
             Assert.Equal(-1, Range.Comparer.Compare(b, c));
+        }
+
+        [Fact]
+        public void Equality()
+        {
+            Range a = new Range(1, 2);
+            Range b = new Range(1, 2);
+
+            Assert.Equal(a, b);
         }
 
         [Fact]

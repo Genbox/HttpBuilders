@@ -5,16 +5,9 @@ namespace Genbox.HttpBuilders
 {
     public class ContentTypeBuilder : IHttpHeaderBuilder
     {
-        private string _mediaType;
-        private string _charset;
         private string _boundary;
-
-        public void Set(string mediaType, string charset = null, string boundary = null)
-        {
-            _mediaType = mediaType;
-            _charset = charset;
-            _boundary = boundary;
-        }
+        private string _charset;
+        private string _mediaType;
 
         public string Build()
         {
@@ -31,6 +24,13 @@ namespace Genbox.HttpBuilders
                 sb.Append("; boundary=").Append(_boundary);
 
             return sb.ToString();
+        }
+
+        public void Set(string mediaType, string charset = null, string boundary = null)
+        {
+            _mediaType = mediaType;
+            _charset = charset;
+            _boundary = boundary;
         }
     }
 }

@@ -4,6 +4,11 @@ namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class EtagBuilderTests
     {
+        private ETagBuilder CreateBuilder()
+        {
+            return new ETagBuilder();
+        }
+
         [Fact]
         public void SimpleEtag()
         {
@@ -18,11 +23,6 @@ namespace Genbox.HttpBuilders.Tests.Builders
             ETagBuilder b = CreateBuilder();
             b.Set("\"myetag\"", true);
             Assert.Equal("W/\"myetag\"", b.Build());
-        }
-
-        private ETagBuilder CreateBuilder()
-        {
-            return new ETagBuilder();
         }
     }
 }

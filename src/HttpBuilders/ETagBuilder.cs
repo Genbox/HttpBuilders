@@ -11,12 +11,6 @@ namespace Genbox.HttpBuilders
         private string _value;
         private bool _weak;
 
-        public void Set(string value, bool weak = false)
-        {
-            _value = value;
-            _weak = weak;
-        }
-
         public string Build()
         {
             if (_value == null)
@@ -30,6 +24,12 @@ namespace Genbox.HttpBuilders
             sb.Append(_value);
 
             return sb.ToString();
+        }
+
+        public void Set(string value, bool weak = false)
+        {
+            _value = value;
+            _weak = weak;
         }
     }
 }

@@ -15,16 +15,6 @@ namespace Genbox.HttpBuilders
     {
         private ConstantGrowArray<ContentEncodingType> _encodings;
 
-        public ContentEncodingBuilder Add(ContentEncodingType encoding)
-        {
-            if (_encodings == null)
-                _encodings = new ConstantGrowArray<ContentEncodingType>(1);
-
-            _encodings.Add(encoding);
-
-            return this;
-        }
-
         public string Build()
         {
             if (_encodings == null)
@@ -33,6 +23,16 @@ namespace Genbox.HttpBuilders
             StringBuilder sb = new StringBuilder();
             sb.AppendJoin(", ", _encodings.Select(x => x.AsString(EnumFormat.DisplayName)));
             return sb.ToString();
+        }
+
+        public ContentEncodingBuilder Add(ContentEncodingType encoding)
+        {
+            if (_encodings == null)
+                _encodings = new ConstantGrowArray<ContentEncodingType>(1);
+
+            _encodings.Add(encoding);
+
+            return this;
         }
     }
 }

@@ -5,43 +5,31 @@ namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class HttpRangeBuilderTests
     {
-        [Fact]
-        public void ZeroRange()
+        private RangeBuilder CreateBuilder()
         {
-            RangeBuilder b = CreateBuilder();
-            Assert.Null(b.Build());
+            return new RangeBuilder(Microsoft.Extensions.Options.Options.Create(new RangeBuilderOptions
+            {
+                MergeOverlappingRanges = false,
+                ShortenRanges = false,
+                DiscardInvalidRanges = false,
+                SortRanges = false
+            }));
         }
 
         [Fact]
-        public void SingleRange()
+        public void DiscardInvalidRanges()
         {
             RangeBuilder b = CreateBuilder();
-            b.Add(0, 10);
+            b.Add(-1, 10);
+            b.Add(5, 110);
 
-            Assert.Equal("bytes=0-10", b.Build());
-        }
+            Assert.Equal("bytes=-1-10,5-110", b.Build("bytes", 100));
 
-        [Fact]
-        public void MultipleRanges()
-        {
-            RangeBuilder b = CreateBuilder();
-            b.Add(0, 10);
-            b.Add(100, 200);
+            b.Options.Value.DiscardInvalidRanges = true;
+            Assert.Null(b.Build("bytes", 100));
 
-            Assert.Equal("bytes=0-10,100-200", b.Build());
-        }
-
-        [Fact]
-        public void SortRanges()
-        {
-            RangeBuilder b = CreateBuilder();
-            b.Add(2, 3);
-            b.Add(1, 2);
-
-            Assert.Equal("bytes=2-3,1-2", b.Build());
-
-            b.Options.Value.SortRanges = true;
-            Assert.Equal("bytes=1-2,2-3", b.Build());
+            b.Add(6, 10);
+            Assert.Equal("bytes=6-10", b.Build("bytes", 100));
         }
 
         [Fact]
@@ -62,19 +50,13 @@ namespace Genbox.HttpBuilders.Tests.Builders
         }
 
         [Fact]
-        public void DiscardInvalidRanges()
+        public void MultipleRanges()
         {
             RangeBuilder b = CreateBuilder();
-            b.Add(-1, 10);
-            b.Add(5, 110);
+            b.Add(0, 10);
+            b.Add(100, 200);
 
-            Assert.Equal("bytes=-1-10,5-110", b.Build("bytes", 100));
-
-            b.Options.Value.DiscardInvalidRanges = true;
-            Assert.Null(b.Build("bytes", 100));
-
-            b.Add(6, 10);
-            Assert.Equal("bytes=6-10", b.Build("bytes", 100));
+            Assert.Equal("bytes=0-10,100-200", b.Build());
         }
 
         [Fact]
@@ -90,15 +72,33 @@ namespace Genbox.HttpBuilders.Tests.Builders
             Assert.Equal("bytes=0-10,11-", b.Build("bytes", 100));
         }
 
-        private RangeBuilder CreateBuilder()
+        [Fact]
+        public void SingleRange()
         {
-            return new RangeBuilder(Microsoft.Extensions.Options.Options.Create(new RangeBuilderOptions()
-            {
-                MergeOverlappingRanges = false,
-                ShortenRanges = false,
-                DiscardInvalidRanges = false,
-                SortRanges = false
-            }));
+            RangeBuilder b = CreateBuilder();
+            b.Add(0, 10);
+
+            Assert.Equal("bytes=0-10", b.Build());
+        }
+
+        [Fact]
+        public void SortRanges()
+        {
+            RangeBuilder b = CreateBuilder();
+            b.Add(2, 3);
+            b.Add(1, 2);
+
+            Assert.Equal("bytes=2-3,1-2", b.Build());
+
+            b.Options.Value.SortRanges = true;
+            Assert.Equal("bytes=1-2,2-3", b.Build());
+        }
+
+        [Fact]
+        public void ZeroRange()
+        {
+            RangeBuilder b = CreateBuilder();
+            Assert.Null(b.Build());
         }
     }
 }

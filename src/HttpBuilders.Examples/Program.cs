@@ -5,9 +5,9 @@ using Genbox.HttpBuilders.Enums;
 
 namespace Genbox.HttpBuilders.Examples
 {
-    class Program
+    internal class Program
     {
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             using (HttpClient client = new HttpClient())
             {

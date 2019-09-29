@@ -13,8 +13,8 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class ContentDispositionBuilder : IHttpHeaderBuilder
     {
-        private ContentDispositionType _type;
         private string _filename;
+        private ContentDispositionType _type;
 
         public ContentDispositionBuilder()
         {
@@ -27,18 +27,6 @@ namespace Genbox.HttpBuilders
         }
 
         public IOptions<ContentDispositionBuilderOptions> Options { get; }
-
-        public void Set(ContentDispositionType type, string filename = null)
-        {
-            if (type == ContentDispositionType.Attachment && filename == null)
-                throw new ArgumentException("You have to supply a filename", nameof(filename));
-
-            if (type == ContentDispositionType.Inline && filename != null)
-                throw new ArgumentException("You supplied a filename to Inline. That is not permitted", nameof(filename));
-
-            _type = type;
-            _filename = filename;
-        }
 
         public string Build()
         {
@@ -55,6 +43,18 @@ namespace Genbox.HttpBuilders
                 sb.Append("; filename").Append(Options.Value.UseExtendedFilename ? "*" : null).Append("=\"").Append(_filename).Append('"');
 
             return sb.ToString();
+        }
+
+        public void Set(ContentDispositionType type, string filename = null)
+        {
+            if (type == ContentDispositionType.Attachment && filename == null)
+                throw new ArgumentException("You have to supply a filename", nameof(filename));
+
+            if (type == ContentDispositionType.Inline && filename != null)
+                throw new ArgumentException("You supplied a filename to Inline. That is not permitted", nameof(filename));
+
+            _type = type;
+            _filename = filename;
         }
     }
 }

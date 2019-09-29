@@ -10,7 +10,8 @@ namespace Genbox.HttpBuilders.Options
         public bool UseExtendedFilename { get; set; } = true;
 
         /// <summary>
-        /// If the <see cref="ContentDispositionType"/> is set to Inline, then we can omit the header completely as it is the default header value.
+        /// If the <see cref="ContentDispositionType" /> is set to Inline, then we can omit the header completely as it is the
+        /// default header value.
         /// </summary>
         public bool OmitDefaultDisposition { get; set; } = true;
     }

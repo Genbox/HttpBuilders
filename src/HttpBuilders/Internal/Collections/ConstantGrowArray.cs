@@ -11,8 +11,8 @@ namespace Genbox.HttpBuilders.Internal.Collections
     /// <typeparam name="T"></typeparam>
     internal class ConstantGrowArray<T> : IEnumerable<T>
     {
-        private readonly int _growBy;
         private readonly IComparer<T> _comparer;
+        private readonly int _growBy;
         private T[] _array;
 
         public ConstantGrowArray(int growBy, IComparer<T> comparer = null)
@@ -24,10 +24,24 @@ namespace Genbox.HttpBuilders.Internal.Collections
         public int Count { get; private set; }
         internal bool Sorted { get; private set; }
 
+        public ref T this[int index] => ref _array[index];
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new Enumerator(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return new Enumerator(this);
+        }
+
         public void Add(T item)
         {
             if (_array == null)
+            {
                 _array = new T[_growBy];
+            }
             else
             {
                 if (_array.Length < Count + 1)
@@ -47,18 +61,6 @@ namespace Genbox.HttpBuilders.Internal.Collections
 
             Array.Sort(_array, _comparer);
             Sorted = true;
-        }
-
-        public ref T this[int index] => ref _array[index];
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return new Enumerator(this);
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return new Enumerator(this);
         }
 
         private struct Enumerator : IEnumerator<T>
@@ -81,12 +83,13 @@ namespace Genbox.HttpBuilders.Internal.Collections
             {
                 ConstantGrowArray<T> localList = _list;
 
-                if (((uint)_index < (uint)localList.Count))
+                if ((uint)_index < (uint)localList.Count)
                 {
                     Current = localList._array[_index];
                     _index++;
                     return true;
                 }
+
                 return MoveNextRare();
             }
 

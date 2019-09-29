@@ -7,15 +7,13 @@ namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class ContentDispositionBuilderTests
     {
-        [Fact]
-        public void UseExtendedFilename()
+        private ContentDispositionBuilder CreateBuilder()
         {
-            ContentDispositionBuilder b = CreateBuilder();
-            b.Set(ContentDispositionType.Attachment, "myfile.exe");
-            Assert.Equal("attachment; filename=\"myfile.exe\"", b.Build());
-
-            b.Options.Value.UseExtendedFilename = true;
-            Assert.Equal("attachment; filename*=\"myfile.exe\"", b.Build());
+            return new ContentDispositionBuilder(Microsoft.Extensions.Options.Options.Create(new ContentDispositionBuilderOptions
+            {
+                UseExtendedFilename = false,
+                OmitDefaultDisposition = false
+            }));
         }
 
         [Fact]
@@ -43,13 +41,15 @@ namespace Genbox.HttpBuilders.Tests.Builders
             Assert.Null(b.Build());
         }
 
-        private ContentDispositionBuilder CreateBuilder()
+        [Fact]
+        public void UseExtendedFilename()
         {
-            return new ContentDispositionBuilder(Microsoft.Extensions.Options.Options.Create(new ContentDispositionBuilderOptions
-            {
-                UseExtendedFilename = false,
-                OmitDefaultDisposition = false
-            }));
+            ContentDispositionBuilder b = CreateBuilder();
+            b.Set(ContentDispositionType.Attachment, "myfile.exe");
+            Assert.Equal("attachment; filename=\"myfile.exe\"", b.Build());
+
+            b.Options.Value.UseExtendedFilename = true;
+            Assert.Equal("attachment; filename*=\"myfile.exe\"", b.Build());
         }
     }
 }
