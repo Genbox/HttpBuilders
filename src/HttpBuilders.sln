@@ -11,8 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpBuilders.Tests", "HttpB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{EF1D19B3-97F1-4504-95AB-BE249F5BF29A}"
 	ProjectSection(SolutionItems) = preProject
+		..\Directory.Build.props = ..\Directory.Build.props
 		..\Global.ruleset = ..\Global.ruleset
-		..\Import.targets = ..\Import.targets
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
