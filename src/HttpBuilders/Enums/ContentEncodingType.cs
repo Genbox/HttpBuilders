@@ -20,7 +20,8 @@
         Deflate,
 
         /// <summary>
-        /// Indicates the identity function (i.e., no compression or modification). This token, except if explicitly specified, is always deemed acceptable.
+        /// Indicates the identity function (i.e., no compression or modification). This token, except if explicitly specified, is
+        /// always deemed acceptable.
         /// </summary>
         Identity,
 

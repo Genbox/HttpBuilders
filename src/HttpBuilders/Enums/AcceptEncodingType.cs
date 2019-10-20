@@ -3,7 +3,7 @@
     public enum AcceptEncodingType
     {
         Unknown = 0,
-        
+
         /// <summary>
         /// A compression format using the Lempel-Ziv coding (LZ77), with a 32-bit CRC.
         /// </summary>
@@ -20,7 +20,8 @@
         Deflate,
 
         /// <summary>
-        /// Indicates the identity function (i.e. no compression, nor modification). This value is always considered as acceptable, even if not present.
+        /// Indicates the identity function (i.e. no compression, nor modification). This value is always considered as acceptable,
+        /// even if not present.
         /// </summary>
         Identity,
 
@@ -30,7 +31,8 @@
         Brotli,
 
         /// <summary>
-        /// Matches any content encoding not already listed in the header. This is the default value if the header is not present. It doesn't mean that any algorithm is supported; merely that no preference is expressed.
+        /// Matches any content encoding not already listed in the header. This is the default value if the header is not present.
+        /// It doesn't mean that any algorithm is supported; merely that no preference is expressed.
         /// </summary>
         Any
     }
