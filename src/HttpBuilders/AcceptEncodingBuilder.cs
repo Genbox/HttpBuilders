@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
-using EnumsNET;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Extensions;
 using Genbox.HttpBuilders.Internal.Collections;
 using Microsoft.Extensions.Options;
 
@@ -45,7 +45,7 @@ namespace Genbox.HttpBuilders
             {
                 (AcceptEncodingType type, float weight) = _encodings[i];
 
-                sb.Append(type.AsString(EnumFormat.DisplayName));
+                sb.Append(type.GetMemberValue());
 
                 if (!Options.Value.OmitDefaultWeight || Math.Abs(weight - 1.0f) > 0.00001f)
                     sb.Append(";q=").Append(weight);

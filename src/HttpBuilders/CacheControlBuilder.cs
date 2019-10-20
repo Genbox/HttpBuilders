@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using EnumsNET;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Extensions;
 
 namespace Genbox.HttpBuilders
 {
@@ -23,7 +23,7 @@ namespace Genbox.HttpBuilders
                 return null;
 
             StringBuilder sb = new StringBuilder();
-            sb.Append(_type.AsString(EnumFormat.DisplayName));
+            sb.Append(_type.GetMemberValue());
 
             if (_seconds > -1)
                 sb.Append('=').Append(_seconds);

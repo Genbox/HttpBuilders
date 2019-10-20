@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
-using EnumsNET;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Extensions;
 using Microsoft.Extensions.Options;
 
 namespace Genbox.HttpBuilders
@@ -45,7 +45,7 @@ namespace Genbox.HttpBuilders
                 return null;
 
             StringBuilder sb = new StringBuilder();
-            sb.Append(_type.AsString(EnumFormat.DisplayName));
+            sb.Append(_type.GetMemberValue());
 
             if (_filename != null)
                 sb.Append("; filename").Append(Options.Value.UseExtendedFilename ? "*" : null).Append("=\"").Append(_filename).Append('"');

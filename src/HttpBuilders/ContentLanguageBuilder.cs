@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using EnumsNET;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Extensions;
 using Genbox.HttpBuilders.Internal.Collections;
 using Genbox.HttpBuilders.Internal.Extensions;
 
@@ -33,7 +33,7 @@ namespace Genbox.HttpBuilders
 
         public ContentLanguageBuilder Add(Language language)
         {
-            return Add(language.AsString(EnumFormat.DisplayName));
+            return Add(language.GetMemberValue());
         }
 
         public ContentLanguageBuilder Add(string language)

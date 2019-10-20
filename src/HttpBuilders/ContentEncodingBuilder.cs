@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Text;
-using EnumsNET;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Extensions;
 using Genbox.HttpBuilders.Internal.Collections;
 using Genbox.HttpBuilders.Internal.Extensions;
 
@@ -26,7 +26,7 @@ namespace Genbox.HttpBuilders
                 return null;
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendJoin(", ", _encodings.Select(x => x.AsString(EnumFormat.DisplayName)));
+            sb.AppendJoin(", ", _encodings.Select(x => x.GetMemberValue()));
             return sb.ToString();
         }
 
