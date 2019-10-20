@@ -10,7 +10,10 @@ namespace Genbox.HttpBuilders.Extensions
             if (type == AcceptEncodingType.Unknown)
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
 
-            if (type == AcceptEncodingType.Star)
+            if (type == AcceptEncodingType.Brotli)
+                return "br";
+
+            if (type == AcceptEncodingType.Any)
                 return "*";
 
             return type.ToString().ToLowerInvariant();

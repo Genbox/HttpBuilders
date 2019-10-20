@@ -10,6 +10,9 @@ namespace Genbox.HttpBuilders.Extensions
             if (type == ContentEncodingType.Unknown)
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
 
+            if (type == ContentEncodingType.Brotli)
+                return "br";
+
             return type.ToString().ToLowerInvariant();
         }
     }
