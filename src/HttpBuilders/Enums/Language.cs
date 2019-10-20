@@ -184,6 +184,6 @@
         Yoruba,
         Zhuang,
         Chinese,
-        Zulu,
+        Zulu
     }
 }

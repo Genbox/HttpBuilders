@@ -1,5 +1,6 @@
 ﻿using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Enums;
+using Microsoft.Extensions.Options;
 using Xunit;
 
 namespace Genbox.HttpBuilders.Tests.Builders
@@ -8,7 +9,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
     {
         private AcceptEncodingBuilder CreateBuilder()
         {
-            return new AcceptEncodingBuilder(Microsoft.Extensions.Options.Options.Create(new AcceptEncodingOptions
+            return new AcceptEncodingBuilder(Options.Create(new AcceptEncodingOptions
             {
                 OmitDefaultWeight = false
             }));
