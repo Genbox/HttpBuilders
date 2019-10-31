@@ -58,6 +58,12 @@ namespace Genbox.HttpBuilders
             return _sb.ToString();
         }
 
+        public void Reset()
+        {
+            _filename = null;
+            _type = ContentDispositionType.Unknown;
+        }
+
         public void Set(ContentDispositionType type, string filename = null)
         {
             if (type == ContentDispositionType.Attachment && filename == null)

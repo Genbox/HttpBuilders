@@ -19,7 +19,7 @@ namespace Genbox.HttpBuilders
     /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests and
     /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range
     /// </summary>
-    public class RangeBuilder : IHttpHeaderBuilder, IResetBuilder
+    public class RangeBuilder : IHttpHeaderBuilder
     {
         private int _invalidCount;
         private BitArray _invalidIndex;

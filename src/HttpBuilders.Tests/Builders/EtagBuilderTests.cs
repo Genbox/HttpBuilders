@@ -15,6 +15,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
             ETagBuilder b = CreateBuilder();
             b.Set("\"myetag\"");
             Assert.Equal("\"myetag\"", b.Build());
+
+            b.Reset();
+            Assert.Null(b.Build());
         }
 
         [Fact]

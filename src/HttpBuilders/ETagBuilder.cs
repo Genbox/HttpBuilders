@@ -39,6 +39,12 @@ namespace Genbox.HttpBuilders
             return _sb.ToString();
         }
 
+        public void Reset()
+        {
+            _value = null;
+            _weak = false;
+        }
+
         public void Set(string value, bool weak = false)
         {
             _value = value;

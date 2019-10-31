@@ -40,6 +40,13 @@ namespace Genbox.HttpBuilders
             return _sb.ToString();
         }
 
+        public void Reset()
+        {
+            _mediaType = null;
+            _boundary = null;
+            _mediaType = null;
+        }
+
         public void Set(string mediaType, string charset = null, string boundary = null)
         {
             _mediaType = mediaType;

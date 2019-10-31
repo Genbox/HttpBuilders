@@ -14,7 +14,7 @@ namespace Genbox.HttpBuilders
     /// referenced by the Content-Type header.
     /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
     /// </summary>
-    public class ContentEncodingBuilder : IHttpHeaderBuilder, IResetBuilder
+    public class ContentEncodingBuilder : IHttpHeaderBuilder
     {
         private ConstantGrowArray<ContentEncodingType> _encodings;
         private StringBuilder _sb;

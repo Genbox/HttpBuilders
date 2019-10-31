@@ -36,6 +36,12 @@ namespace Genbox.HttpBuilders
             return _sb.ToString();
         }
 
+        public void Reset()
+        {
+            _seconds = -1;
+            _type = CacheControlType.Unknown;
+        }
+
         public void Set(CacheControlType type, int seconds = -1)
         {
             CheckOptionalArgument(type, seconds);

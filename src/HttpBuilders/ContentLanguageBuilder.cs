@@ -15,7 +15,7 @@ namespace Genbox.HttpBuilders
     /// want to indicate which language the document is written in, use the lang attribute instead).
     /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language
     /// </summary>
-    public class ContentLanguageBuilder : IHttpHeaderBuilder, IResetBuilder
+    public class ContentLanguageBuilder : IHttpHeaderBuilder
     {
         private ConstantGrowArray<string> _languages;
         private StringBuilder _sb;

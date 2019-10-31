@@ -12,5 +12,10 @@
         /// </summary>
         /// <returns></returns>
         string Build();
+
+        /// <summary>
+        /// Call this method to reset the state of the builder
+        /// </summary>
+        void Reset();
     }
 }

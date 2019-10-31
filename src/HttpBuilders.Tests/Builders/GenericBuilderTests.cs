@@ -56,5 +56,15 @@ namespace Genbox.HttpBuilders.Tests.Builders
                 Assert.Equal(first, second);
             }
         }
+
+        [Fact]
+        public void ResetWorks()
+        {
+            foreach (IHttpHeaderBuilder builder in GetBuilders())
+            {
+                builder.Reset();
+                Assert.Null(builder.Build());
+            }
+        }
     }
 }

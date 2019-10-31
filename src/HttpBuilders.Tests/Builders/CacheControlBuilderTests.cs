@@ -13,6 +13,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
             b.Set(CacheControlType.MaxAge, 42);
 
             Assert.Equal("max-age=42", b.Build());
+
+            b.Reset();
+            Assert.Null(b.Build());
         }
 
         [Fact]

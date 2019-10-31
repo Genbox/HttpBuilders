@@ -40,6 +40,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
 
             b.Options.Value.OmitDefaultDisposition = true;
             Assert.Null(b.Build());
+
+            b.Reset();
+            Assert.Null(b.Build());
         }
 
         [Fact]

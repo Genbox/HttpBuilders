@@ -16,7 +16,7 @@ namespace Genbox.HttpBuilders
     /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
     /// For info on weights, see https://developer.mozilla.org/en-US/docs/Glossary/Quality_values
     /// </summary>
-    public class AcceptEncodingBuilder : IHttpHeaderBuilder, IResetBuilder
+    public class AcceptEncodingBuilder : IHttpHeaderBuilder
     {
         private ConstantGrowArray<(AcceptEncodingType, float)> _encodings;
         private StringBuilder _sb;

@@ -10,6 +10,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
             ContentTypeBuilder b = new ContentTypeBuilder();
             b.Set("text/html", "utf-8");
             Assert.Equal("text/html; charset=utf-8", b.Build());
+
+            b.Reset();
+            Assert.Null(b.Build());
         }
 
         [Fact]
