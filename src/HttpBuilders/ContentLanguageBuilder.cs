@@ -36,6 +36,11 @@ namespace Genbox.HttpBuilders
             return _sb.ToString();
         }
 
+        public void Reset()
+        {
+            _languages?.Clear();
+        }
+
         public ContentLanguageBuilder Add(Language language)
         {
             return Add(language.GetMemberValue());
@@ -49,11 +54,6 @@ namespace Genbox.HttpBuilders
             _languages.Add(language);
 
             return this;
-        }
-
-        public void Reset()
-        {
-            _languages?.Clear();
         }
     }
 }

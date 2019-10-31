@@ -20,8 +20,8 @@ namespace Genbox.HttpBuilders
     public class ContentDispositionBuilder : IHttpHeaderBuilder
     {
         private string _filename;
-        private ContentDispositionType _type;
         private StringBuilder _sb;
+        private ContentDispositionType _type;
 
         public ContentDispositionBuilder()
         {

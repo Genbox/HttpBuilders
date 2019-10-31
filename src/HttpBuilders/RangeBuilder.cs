@@ -45,6 +45,12 @@ namespace Genbox.HttpBuilders
             return Build("bytes");
         }
 
+        public void Reset()
+        {
+            _ranges?.Clear();
+            _invalidIndex?.SetAll(false);
+        }
+
         public RangeBuilder Add(long start, long end)
         {
             if (_ranges == null)
@@ -166,12 +172,6 @@ namespace Genbox.HttpBuilders
 
             _invalidIndex[index] = true;
             _invalidCount++;
-        }
-
-        public void Reset()
-        {
-            _ranges?.Clear();
-            _invalidIndex?.SetAll(false);
         }
     }
 }

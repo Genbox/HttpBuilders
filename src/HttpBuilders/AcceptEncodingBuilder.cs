@@ -61,6 +61,11 @@ namespace Genbox.HttpBuilders
             return _sb.ToString();
         }
 
+        public void Reset()
+        {
+            _encodings?.Clear();
+        }
+
         public AcceptEncodingBuilder Add(AcceptEncodingType encoding, float weight = 1.0f)
         {
             if (_encodings == null)
@@ -69,11 +74,6 @@ namespace Genbox.HttpBuilders
             _encodings.Add((encoding, weight));
 
             return this;
-        }
-
-        public void Reset()
-        {
-            _encodings?.Clear();
         }
     }
 }

@@ -35,6 +35,11 @@ namespace Genbox.HttpBuilders
             return _sb.ToString();
         }
 
+        public void Reset()
+        {
+            _encodings?.Clear();
+        }
+
         public ContentEncodingBuilder Add(ContentEncodingType encoding)
         {
             if (_encodings == null)
@@ -43,11 +48,6 @@ namespace Genbox.HttpBuilders
             _encodings.Add(encoding);
 
             return this;
-        }
-
-        public void Reset()
-        {
-            _encodings?.Clear();
         }
     }
 }
