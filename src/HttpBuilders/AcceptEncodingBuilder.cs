@@ -19,6 +19,7 @@ namespace Genbox.HttpBuilders
     public class AcceptEncodingBuilder : IHttpHeaderBuilder
     {
         private ConstantGrowArray<(AcceptEncodingType, float)> _encodings;
+        private StringBuilder _sb;
 
         public AcceptEncodingBuilder()
         {
@@ -39,22 +40,25 @@ namespace Genbox.HttpBuilders
             if (_encodings == null)
                 return null;
 
-            StringBuilder sb = new StringBuilder();
+            if (_sb == null)
+                _sb = new StringBuilder(25);
+            else
+                _sb.Clear();
 
             for (int i = 0; i < _encodings.Count; i++)
             {
                 (AcceptEncodingType type, float weight) = _encodings[i];
 
-                sb.Append(type.GetMemberValue());
+                _sb.Append(type.GetMemberValue());
 
                 if (!Options.Value.OmitDefaultWeight || Math.Abs(weight - 1.0f) > 0.00001f)
-                    sb.Append(";q=").Append(weight);
+                    _sb.Append(";q=").Append(weight);
 
                 if (i < _encodings.Count - 1)
-                    sb.Append(", ");
+                    _sb.Append(", ");
             }
 
-            return sb.ToString();
+            return _sb.ToString();
         }
 
         public AcceptEncodingBuilder Add(AcceptEncodingType encoding, float weight = 1.0f)

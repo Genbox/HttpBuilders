@@ -14,6 +14,7 @@ namespace Genbox.HttpBuilders
     {
         private int _seconds;
         private CacheControlType _type;
+        private StringBuilder _sb;
 
         public string HeaderName => "Cache-Control";
 
@@ -22,13 +23,17 @@ namespace Genbox.HttpBuilders
             if (_type == CacheControlType.Unknown)
                 return null;
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append(_type.GetMemberValue());
+            if (_sb == null)
+                _sb = new StringBuilder(25);
+            else
+                _sb.Clear();
+
+            _sb.Append(_type.GetMemberValue());
 
             if (_seconds > -1)
-                sb.Append('=').Append(_seconds);
+                _sb.Append('=').Append(_seconds);
 
-            return sb.ToString();
+            return _sb.ToString();
         }
 
         public void Set(CacheControlType type, int seconds = -1)

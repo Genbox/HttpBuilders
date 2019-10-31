@@ -17,6 +17,7 @@ namespace Genbox.HttpBuilders
     {
         private string _value;
         private bool _weak;
+        private StringBuilder _sb;
 
         public string HeaderName => "ETag";
 
@@ -25,14 +26,17 @@ namespace Genbox.HttpBuilders
             if (_value == null)
                 return null;
 
-            StringBuilder sb = new StringBuilder();
+            if (_sb == null)
+                _sb = new StringBuilder(25);
+            else
+                _sb.Clear();
 
             if (_weak)
-                sb.Append("W/");
+                _sb.Append("W/");
 
-            sb.Append(_value);
+            _sb.Append(_value);
 
-            return sb.ToString();
+            return _sb.ToString();
         }
 
         public void Set(string value, bool weak = false)

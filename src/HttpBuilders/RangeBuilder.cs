@@ -24,6 +24,7 @@ namespace Genbox.HttpBuilders
         private int _invalidCount;
         private BitArray _invalidIndex;
         private ConstantGrowArray<Range> _ranges;
+        private StringBuilder _sb;
 
         public RangeBuilder()
         {
@@ -118,10 +119,13 @@ namespace Genbox.HttpBuilders
             if (_ranges.Count == _invalidCount)
                 return null;
 
-            StringBuilder sb = new StringBuilder();
+            if (_sb == null)
+                _sb = new StringBuilder(25);
+            else
+                _sb.Clear();
 
             //bytes=
-            sb.Append(unit).Append('=');
+            _sb.Append(unit).Append('=');
 
             //start-end, start-end
             for (int i = 0; i < _ranges.Count; i++)
@@ -136,20 +140,20 @@ namespace Genbox.HttpBuilders
                 {
                     //We might be able to omit the end. Only possible if data size is supplied
                     if (range.End == dataSize)
-                        sb.Append(range.Start).Append('-');
+                        _sb.Append(range.Start).Append('-');
                     else
-                        sb.Append(range.Start).Append('-').Append(range.End);
+                        _sb.Append(range.Start).Append('-').Append(range.End);
                 }
                 else
                 {
-                    sb.Append(range.Start).Append('-').Append(range.End);
+                    _sb.Append(range.Start).Append('-').Append(range.End);
                 }
 
                 if (i < _ranges.Count - 1 - _invalidCount)
-                    sb.Append(',');
+                    _sb.Append(',');
             }
 
-            return sb.ToString();
+            return _sb.ToString();
         }
 
         /// <summary>

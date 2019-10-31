@@ -21,6 +21,7 @@ namespace Genbox.HttpBuilders
     {
         private string _filename;
         private ContentDispositionType _type;
+        private StringBuilder _sb;
 
         public ContentDispositionBuilder()
         {
@@ -44,13 +45,17 @@ namespace Genbox.HttpBuilders
             if (Options.Value.OmitDefaultDisposition && _type == ContentDispositionType.Inline)
                 return null;
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append(_type.GetMemberValue());
+            if (_sb == null)
+                _sb = new StringBuilder(25);
+            else
+                _sb.Clear();
+
+            _sb.Append(_type.GetMemberValue());
 
             if (_filename != null)
-                sb.Append("; filename").Append(Options.Value.UseExtendedFilename ? "*" : null).Append("=\"").Append(_filename).Append('"');
+                _sb.Append("; filename").Append(Options.Value.UseExtendedFilename ? "*" : null).Append("=\"").Append(_filename).Append('"');
 
-            return sb.ToString();
+            return _sb.ToString();
         }
 
         public void Set(ContentDispositionType type, string filename = null)

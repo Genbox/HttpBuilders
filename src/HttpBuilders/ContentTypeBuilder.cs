@@ -15,6 +15,7 @@ namespace Genbox.HttpBuilders
         private string _boundary;
         private string _charset;
         private string _mediaType;
+        private StringBuilder _sb;
 
         public string HeaderName => "Content-Type";
 
@@ -23,16 +24,20 @@ namespace Genbox.HttpBuilders
             if (_mediaType == null)
                 return null;
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append(_mediaType);
+            if (_sb == null)
+                _sb = new StringBuilder(25);
+            else
+                _sb.Clear();
+
+            _sb.Append(_mediaType);
 
             if (_charset != null)
-                sb.Append("; charset=").Append(_charset);
+                _sb.Append("; charset=").Append(_charset);
 
             if (_boundary != null)
-                sb.Append("; boundary=").Append(_boundary);
+                _sb.Append("; boundary=").Append(_boundary);
 
-            return sb.ToString();
+            return _sb.ToString();
         }
 
         public void Set(string mediaType, string charset = null, string boundary = null)

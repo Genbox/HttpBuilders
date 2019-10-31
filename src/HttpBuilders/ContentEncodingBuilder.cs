@@ -17,6 +17,7 @@ namespace Genbox.HttpBuilders
     public class ContentEncodingBuilder : IHttpHeaderBuilder
     {
         private ConstantGrowArray<ContentEncodingType> _encodings;
+        private StringBuilder _sb;
 
         public string HeaderName => "Content-Encoding";
 
@@ -25,9 +26,13 @@ namespace Genbox.HttpBuilders
             if (_encodings == null)
                 return null;
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendJoin(", ", _encodings.Select(x => x.GetMemberValue()));
-            return sb.ToString();
+            if (_sb == null)
+                _sb = new StringBuilder(25);
+            else
+                _sb.Clear();
+
+            _sb.AppendJoin(", ", _encodings.Select(x => x.GetMemberValue()));
+            return _sb.ToString();
         }
 
         public ContentEncodingBuilder Add(ContentEncodingType encoding)
