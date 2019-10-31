@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
@@ -14,7 +14,7 @@ namespace Genbox.HttpBuilders
     /// referenced by the Content-Type header.
     /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
     /// </summary>
-    public class ContentEncodingBuilder : IHttpHeaderBuilder
+    public class ContentEncodingBuilder : IHttpHeaderBuilder, IResetBuilder
     {
         private ConstantGrowArray<ContentEncodingType> _encodings;
         private StringBuilder _sb;
@@ -23,7 +23,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_encodings == null)
+            if (_encodings == null || _encodings.Count == 0)
                 return null;
 
             if (_sb == null)
@@ -43,6 +43,11 @@ namespace Genbox.HttpBuilders
             _encodings.Add(encoding);
 
             return this;
+        }
+
+        public void Reset()
+        {
+            _encodings?.Clear();
         }
     }
 }

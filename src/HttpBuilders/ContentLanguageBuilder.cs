@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
 using Genbox.HttpBuilders.Extensions;
@@ -15,7 +15,7 @@ namespace Genbox.HttpBuilders
     /// want to indicate which language the document is written in, use the lang attribute instead).
     /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language
     /// </summary>
-    public class ContentLanguageBuilder : IHttpHeaderBuilder
+    public class ContentLanguageBuilder : IHttpHeaderBuilder, IResetBuilder
     {
         private ConstantGrowArray<string> _languages;
         private StringBuilder _sb;
@@ -24,7 +24,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_languages == null)
+            if (_languages == null || _languages.Count == 0)
                 return null;
 
             if (_sb == null)
@@ -49,6 +49,11 @@ namespace Genbox.HttpBuilders
             _languages.Add(language);
 
             return this;
+        }
+
+        public void Reset()
+        {
+            _languages?.Clear();
         }
     }
 }

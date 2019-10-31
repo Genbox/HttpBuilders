@@ -58,6 +58,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
             b.Add(100, 200);
 
             Assert.Equal("bytes=0-10,100-200", b.Build());
+
+            b.Reset();
+            Assert.Null(b.Build());
         }
 
         [Fact]

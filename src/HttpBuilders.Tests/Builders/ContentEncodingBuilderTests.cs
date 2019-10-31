@@ -12,6 +12,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
             b.Add(ContentEncodingType.Gzip);
             b.Add(ContentEncodingType.Deflate);
             Assert.Equal("gzip, deflate", b.Build());
+
+            b.Reset();
+            Assert.Null(b.Build());
         }
 
         [Fact]

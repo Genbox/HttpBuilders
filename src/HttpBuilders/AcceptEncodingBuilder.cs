@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.BuilderOptions;
@@ -16,7 +16,7 @@ namespace Genbox.HttpBuilders
     /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
     /// For info on weights, see https://developer.mozilla.org/en-US/docs/Glossary/Quality_values
     /// </summary>
-    public class AcceptEncodingBuilder : IHttpHeaderBuilder
+    public class AcceptEncodingBuilder : IHttpHeaderBuilder, IResetBuilder
     {
         private ConstantGrowArray<(AcceptEncodingType, float)> _encodings;
         private StringBuilder _sb;
@@ -37,7 +37,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_encodings == null)
+            if (_encodings == null || _encodings.Count == 0)
                 return null;
 
             if (_sb == null)
@@ -69,6 +69,11 @@ namespace Genbox.HttpBuilders
             _encodings.Add((encoding, weight));
 
             return this;
+        }
+
+        public void Reset()
+        {
+            _encodings?.Clear();
         }
     }
 }

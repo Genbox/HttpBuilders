@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Text;
 using Genbox.HttpBuilders.Abstracts;
@@ -19,7 +19,7 @@ namespace Genbox.HttpBuilders
     /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests and
     /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range
     /// </summary>
-    public class RangeBuilder : IHttpHeaderBuilder
+    public class RangeBuilder : IHttpHeaderBuilder, IResetBuilder
     {
         private int _invalidCount;
         private BitArray _invalidIndex;
@@ -66,7 +66,7 @@ namespace Genbox.HttpBuilders
             //3. We shorten the range 
             //4. We skip (and log) invalid ranges
 
-            if (_ranges == null)
+            if (_ranges == null || _ranges.Count == 0)
                 return null;
 
             //Reset state
@@ -166,6 +166,12 @@ namespace Genbox.HttpBuilders
 
             _invalidIndex[index] = true;
             _invalidCount++;
+        }
+
+        public void Reset()
+        {
+            _ranges?.Clear();
+            _invalidIndex?.SetAll(false);
         }
     }
 }

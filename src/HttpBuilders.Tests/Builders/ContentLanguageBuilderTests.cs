@@ -12,6 +12,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
             b.Add(Language.French);
             b.Add(Language.German);
             Assert.Equal("fr, de", b.Build());
+
+            b.Reset();
+            Assert.Null(b.Build());
         }
 
         [Fact]
@@ -21,6 +24,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
             b.Add("da-DK");
             b.Add("en-US");
             Assert.Equal("da-DK, en-US", b.Build());
+
+            b.Reset();
+            Assert.Null(b.Build());
         }
 
         [Fact]

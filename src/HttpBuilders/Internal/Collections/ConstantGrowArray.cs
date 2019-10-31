@@ -63,6 +63,13 @@ namespace Genbox.HttpBuilders.Internal.Collections
             Sorted = true;
         }
 
+        public void Clear()
+        {
+            Array.Clear(_array, 0, _array.Length);
+            Count = 0;
+            Sorted = false;
+        }
+
         private struct Enumerator : IEnumerator<T>
         {
             private readonly ConstantGrowArray<T> _list;
