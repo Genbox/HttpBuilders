@@ -1,5 +1,7 @@
-using System.Text;
+﻿using System.Text;
 using Genbox.HttpBuilders.Abstracts;
+using Genbox.HttpBuilders.Enums;
+using Genbox.HttpBuilders.Extensions;
 
 namespace Genbox.HttpBuilders
 {
@@ -51,6 +53,13 @@ namespace Genbox.HttpBuilders
         {
             _mediaType = mediaType;
             _charset = charset;
+            _boundary = boundary;
+        }
+
+        public void Set(MediaType mediaType, Charset charset = Charset.Unknown, string boundary = null)
+        {
+            _mediaType = mediaType.GetMemberValue();
+            _charset = charset.GetMemberValue();
             _boundary = boundary;
         }
     }
