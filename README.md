@@ -15,6 +15,7 @@ This library has done all that for you. You simply create the builder that match
 * Control compatibility and output using options.
 * Consistent behavior: All builders give `null` if they are empty.
 * `IOptions<T>` support for easy integration with dependency injection.
+* Has enums for commonly used values for ease of use.
 * High performance and only a few allocations.
 
 ### Example
