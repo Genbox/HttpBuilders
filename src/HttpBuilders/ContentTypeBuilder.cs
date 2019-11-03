@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 
 namespace Genbox.HttpBuilders
@@ -32,10 +32,10 @@ namespace Genbox.HttpBuilders
             _sb.Append(_mediaType);
 
             if (_charset != null)
-                _sb.Append("; charset=").Append(_charset);
+                _sb.Append(";charset=").Append(_charset);
 
             if (_boundary != null)
-                _sb.Append("; boundary=").Append(_boundary);
+                _sb.Append(";boundary=").Append(_boundary);
 
             return _sb.ToString();
         }
