@@ -8,12 +8,11 @@ using Genbox.HttpBuilders.Internal.Extensions;
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// The Content-Language entity header is used to describe the language(s) intended for the audience, so that it allows a
-    /// user to differentiate according to the users' own preferred language. For example, if "Content-Language: de-DE" is set,
-    /// it says that the document is intended for German language speakers (however, it doesn't indicate the document is
-    /// written in German. For example, it might be written in English as part of a language course for German speakers. If you
-    /// want to indicate which language the document is written in, use the lang attribute instead).
-    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language
+    /// The Content-Language entity header is used to describe the language(s) intended for the audience, so that it allows a user to differentiate
+    /// according to the users' own preferred language. For example, if "Content-Language: de-DE" is set, it says that the document is intended for German
+    /// language speakers (however, it doesn't indicate the document is written in German. For example, it might be written in English as part of a language
+    /// course for German speakers. If you want to indicate which language the document is written in, use the lang attribute instead). For more info, see
+    /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language
     /// </summary>
     public class ContentLanguageBuilder : IHttpHeaderBuilder
     {

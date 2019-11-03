@@ -4,14 +4,10 @@
     {
         Unknown = 0,
 
-        /// <summary>
-        /// Indicate that the content can be displayed inside a web page
-        /// </summary>
+        /// <summary>Indicate that the content can be displayed inside a web page</summary>
         Inline,
 
-        /// <summary>
-        /// Indicates that the content should be downloaded
-        /// </summary>
+        /// <summary>Indicates that the content should be downloaded</summary>
         Attachment
     }
 }

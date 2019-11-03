@@ -10,13 +10,11 @@ using Microsoft.Extensions.Options;
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// The Range HTTP request header indicates the part of a document that the server should return. Several parts can be
-    /// requested with one Range header at once, and the server may send back these ranges in a multipart document. If the
-    /// server sends back ranges, it uses the 206 Partial Content for the response. If the ranges are invalid, the server
-    /// returns the 416 Range Not Satisfiable error. The server can also ignore the Range header and return the whole document
-    /// with a 200 status code.
-    /// This builder creates a range according to RFC 7233, see https://tools.ietf.org/html/rfc7233#section-3.1
-    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests and
+    /// The Range HTTP request header indicates the part of a document that the server should return. Several parts can be requested with one Range
+    /// header at once, and the server may send back these ranges in a multipart document. If the server sends back ranges, it uses the 206 Partial Content
+    /// for the response. If the ranges are invalid, the server returns the 416 Range Not Satisfiable error. The server can also ignore the Range header and
+    /// return the whole document with a 200 status code. This builder creates a range according to RFC 7233, see
+    /// https://tools.ietf.org/html/rfc7233#section-3.1 For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests and
     /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range
     /// </summary>
     public class RangeBuilder : IHttpHeaderBuilder
@@ -102,14 +100,13 @@ namespace Genbox.HttpBuilders
                             ReportInvalid(i);
                         }
                         else
-                        {
                             pointer++;
-                        }
                     }
                 }
             }
 
             if (Options.Value.DiscardInvalidRanges)
+            {
                 for (int i = 0; i < _ranges.Count; i++)
                 {
                     ref Range range = ref _ranges[i];
@@ -120,6 +117,7 @@ namespace Genbox.HttpBuilders
                     if (dataSize > 0 && range.End > dataSize)
                         ReportInvalid(i);
                 }
+            }
 
             //All the ranges where invalid
             if (_ranges.Count == _invalidCount)
@@ -151,9 +149,7 @@ namespace Genbox.HttpBuilders
                         _sb.Append(range.Start).Append('-').Append(range.End);
                 }
                 else
-                {
                     _sb.Append(range.Start).Append('-').Append(range.End);
-                }
 
                 if (i < _ranges.Count - 1 - _invalidCount)
                     _sb.Append(',');
@@ -162,9 +158,7 @@ namespace Genbox.HttpBuilders
             return _sb.ToString();
         }
 
-        /// <summary>
-        /// Only increase the invalid counter if we haven't already reported it.
-        /// </summary>
+        /// <summary>Only increase the invalid counter if we haven't already reported it.</summary>
         private void ReportInvalid(int index)
         {
             if (_invalidIndex[index])

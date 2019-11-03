@@ -10,11 +10,10 @@ using Microsoft.Extensions.Options;
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// The Accept-Encoding request HTTP header advertises which content encoding, usually a compression algorithm, the client
-    /// is able to understand. Using content negotiation, the server selects one of the proposals, uses it and informs the
-    /// client of its choice with the Content-Encoding response header.
-    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
-    /// For info on weights, see https://developer.mozilla.org/en-US/docs/Glossary/Quality_values
+    /// The Accept-Encoding request HTTP header advertises which content encoding, usually a compression algorithm, the client is able to
+    /// understand. Using content negotiation, the server selects one of the proposals, uses it and informs the client of its choice with the
+    /// Content-Encoding response header. For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding For info on weights,
+    /// see https://developer.mozilla.org/en-US/docs/Glossary/Quality_values
     /// </summary>
     public class AcceptEncodingBuilder : IHttpHeaderBuilder
     {

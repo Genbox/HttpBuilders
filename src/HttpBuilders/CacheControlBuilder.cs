@@ -7,8 +7,8 @@ using Genbox.HttpBuilders.Extensions;
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// The "Cache-Control" header field is used to specify directives for caches along the request/response chain.
-    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+    /// The "Cache-Control" header field is used to specify directives for caches along the request/response chain. For more info, see
+    /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
     /// </summary>
     public class CacheControlBuilder : IHttpHeaderBuilder
     {
@@ -53,6 +53,7 @@ namespace Genbox.HttpBuilders
         private void CheckOptionalArgument(CacheControlType type, int seconds)
         {
             if (seconds <= -1)
+            {
                 switch (type)
                 {
                     case CacheControlType.MaxAge:
@@ -60,7 +61,9 @@ namespace Genbox.HttpBuilders
                     case CacheControlType.MinFresh:
                         throw new ArgumentException("You must supply an argument in seconds", nameof(type));
                 }
+            }
             else
+            {
                 switch (type)
                 {
                     case CacheControlType.NoCache:
@@ -69,6 +72,7 @@ namespace Genbox.HttpBuilders
                     case CacheControlType.OnlyIfCached:
                         throw new ArgumentException("You supplied seconds to a cache type that does not support it", nameof(type));
                 }
+            }
         }
     }
 }

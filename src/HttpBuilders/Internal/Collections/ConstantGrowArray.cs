@@ -4,10 +4,7 @@ using System.Collections.Generic;
 
 namespace Genbox.HttpBuilders.Internal.Collections
 {
-    /// <summary>
-    /// An array that is lazy initialized with a configurable absolute growth factor.
-    /// It also keeps track if it is sorted, and early exit if it is
-    /// </summary>
+    /// <summary>An array that is lazy initialized with a configurable absolute growth factor. It also keeps track if it is sorted, and early exit if it is</summary>
     /// <typeparam name="T"></typeparam>
     internal class ConstantGrowArray<T> : IEnumerable<T>
     {
@@ -39,9 +36,7 @@ namespace Genbox.HttpBuilders.Internal.Collections
         public void Add(T item)
         {
             if (_array == null)
-            {
                 _array = new T[_growBy];
-            }
             else
             {
                 if (_array.Length < Count + 1)

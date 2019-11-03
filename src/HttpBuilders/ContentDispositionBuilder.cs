@@ -9,13 +9,11 @@ using Microsoft.Extensions.Options;
 namespace Genbox.HttpBuilders
 {
     /// <summary>
-    /// In a regular HTTP response, the Content-Disposition response header is a header indicating if the content is expected
-    /// to be displayed inline in the browser, that is, as a Web page or as part of a Web page, or as an attachment, that is
-    /// downloaded and saved locally.
-    /// In a multipart/form-data body, the HTTP Content-Disposition general header is a header that can be used on the
-    /// subpart of a multipart body to give information about the field it applies to. The subpart is delimited by the boundary
-    /// defined in the Content-Type header. Used on the body itself, Content-Disposition has no effect.
-    /// For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition
+    /// In a regular HTTP response, the Content-Disposition response header is a header indicating if the content is expected to be displayed inline
+    /// in the browser, that is, as a Web page or as part of a Web page, or as an attachment, that is downloaded and saved locally. In a multipart/form-data
+    /// body, the HTTP Content-Disposition general header is a header that can be used on the subpart of a multipart body to give information about the field
+    /// it applies to. The subpart is delimited by the boundary defined in the Content-Type header. Used on the body itself, Content-Disposition has no
+    /// effect. For more info, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition
     /// </summary>
     public class ContentDispositionBuilder : IHttpHeaderBuilder
     {

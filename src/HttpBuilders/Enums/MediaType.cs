@@ -1,8 +1,6 @@
 ﻿namespace Genbox.HttpBuilders.Enums
 {
-    /// <summary>
-    /// Media type as defined by IANA. See https://www.iana.org/assignments/media-types/media-types.xhtml
-    /// </summary>
+    /// <summary>Media type as defined by IANA. See https://www.iana.org/assignments/media-types/media-types.xhtml</summary>
     public enum MediaType
     {
         Unknown = 0,
