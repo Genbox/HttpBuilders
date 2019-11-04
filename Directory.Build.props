@@ -4,7 +4,7 @@
     <Authors>Ian Qvist</Authors>
     <Copyright>Copyright 2019, by Ian Qvist. All rights reserved.</Copyright>
     <Description>A strongly typed API for HTTP headers</Description>
-    <Version>0.1.0-alpha11</Version>
+    <Version>0.1.0-alpha12</Version>
 
     <!-- Set copying files etc. to timeout faster -->
     <CopyRetryCount>2</CopyRetryCount>
