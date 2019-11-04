@@ -58,7 +58,10 @@ namespace Genbox.HttpBuilders
         public void Set(MediaType mediaType, Charset charset = Charset.Unknown, string boundary = null)
         {
             _mediaType = mediaType.GetMemberValue();
-            _charset = charset.GetMemberValue();
+
+            if (charset != Charset.Unknown)
+                _charset = charset.GetMemberValue();
+
             _boundary = boundary;
         }
     }
