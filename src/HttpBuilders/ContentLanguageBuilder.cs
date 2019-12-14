@@ -23,7 +23,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_languages == null || _languages.Count == 0)
+            if (!HasData())
                 return null;
 
             if (_sb == null)
@@ -38,6 +38,11 @@ namespace Genbox.HttpBuilders
         public void Reset()
         {
             _languages?.Clear();
+        }
+
+        public bool HasData()
+        {
+            return _languages != null && _languages.Count > 0;
         }
 
         public ContentLanguageBuilder Add(Language language)

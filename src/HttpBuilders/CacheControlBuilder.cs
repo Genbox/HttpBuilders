@@ -20,7 +20,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_type == CacheControlType.Unknown)
+            if (!HasData())
                 return null;
 
             if (_sb == null)
@@ -40,6 +40,11 @@ namespace Genbox.HttpBuilders
         {
             _seconds = -1;
             _type = CacheControlType.Unknown;
+        }
+
+        public bool HasData()
+        {
+            return _type != CacheControlType.Unknown;
         }
 
         public void Set(CacheControlType type, int seconds = -1)

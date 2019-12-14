@@ -21,7 +21,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_value == null)
+            if (!HasData())
                 return null;
 
             if (_sb == null)
@@ -41,6 +41,11 @@ namespace Genbox.HttpBuilders
         {
             _value = null;
             _weak = false;
+        }
+
+        public bool HasData()
+        {
+            return _value != null;
         }
 
         public void Set(string value, bool weak = false)

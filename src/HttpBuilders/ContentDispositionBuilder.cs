@@ -37,7 +37,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_type == ContentDispositionType.Unknown)
+            if (!HasData())
                 return null;
 
             if (Options.Value.OmitDefaultDisposition && _type == ContentDispositionType.Inline)
@@ -60,6 +60,11 @@ namespace Genbox.HttpBuilders
         {
             _filename = null;
             _type = ContentDispositionType.Unknown;
+        }
+
+        public bool HasData()
+        {
+            return _type != ContentDispositionType.Unknown;
         }
 
         public void Set(ContentDispositionType type, string filename = null)

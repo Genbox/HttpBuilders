@@ -1,4 +1,4 @@
-namespace Genbox.HttpBuilders.Abstracts
+﻿namespace Genbox.HttpBuilders.Abstracts
 {
     public interface IHttpHeaderBuilder
     {
@@ -11,5 +11,10 @@ namespace Genbox.HttpBuilders.Abstracts
 
         /// <summary>Call this method to reset the state of the builder</summary>
         void Reset();
+
+        /// <summary>
+        /// Returns true if the builder contains data, otherwise it returns false.
+        /// </summary>
+        bool HasData();
     }
 }

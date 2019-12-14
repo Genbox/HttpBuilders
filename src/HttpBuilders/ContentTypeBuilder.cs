@@ -22,7 +22,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_mediaType == null)
+            if (!HasData())
                 return null;
 
             if (_sb == null)
@@ -46,6 +46,11 @@ namespace Genbox.HttpBuilders
             _mediaType = null;
             _boundary = null;
             _mediaType = null;
+        }
+
+        public bool HasData()
+        {
+            return _mediaType != null;
         }
 
         public void Set(string mediaType, string charset = null, string boundary = null)

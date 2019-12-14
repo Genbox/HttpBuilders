@@ -49,6 +49,11 @@ namespace Genbox.HttpBuilders
             _invalidIndex?.SetAll(false);
         }
 
+        public bool HasData()
+        {
+            return _ranges != null && _ranges.Count > 0;
+        }
+
         public RangeBuilder Add(long start, long end)
         {
             if (_ranges == null)
@@ -70,7 +75,7 @@ namespace Genbox.HttpBuilders
             //3. We shorten the range 
             //4. We skip (and log) invalid ranges
 
-            if (_ranges == null || _ranges.Count == 0)
+            if (!HasData())
                 return null;
 
             //Reset state

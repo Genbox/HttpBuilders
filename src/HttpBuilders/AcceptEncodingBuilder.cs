@@ -36,7 +36,7 @@ namespace Genbox.HttpBuilders
 
         public string Build()
         {
-            if (_encodings == null || _encodings.Count == 0)
+            if (!HasData())
                 return null;
 
             if (_sb == null)
@@ -63,6 +63,11 @@ namespace Genbox.HttpBuilders
         public void Reset()
         {
             _encodings?.Clear();
+        }
+
+        public bool HasData()
+        {
+            return _encodings != null && _encodings.Count > 0;
         }
 
         public AcceptEncodingBuilder Add(AcceptEncodingType encoding, float weight = 1.0f)
