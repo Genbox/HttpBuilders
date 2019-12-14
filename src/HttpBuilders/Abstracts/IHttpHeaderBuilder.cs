@@ -1,4 +1,4 @@
-﻿namespace Genbox.HttpBuilders.Abstracts
+namespace Genbox.HttpBuilders.Abstracts
 {
     public interface IHttpHeaderBuilder
     {
@@ -6,7 +6,7 @@
         string HeaderName { get; }
 
         /// <summary>Builds the builder into a simple string, ready for use in a HTTP header.</summary>
-        /// <returns></returns>
+        /// <returns>The formatted content of the builder. If the builder is not set, it returns null.</returns>
         string Build();
 
         /// <summary>Call this method to reset the state of the builder</summary>
