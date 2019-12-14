@@ -30,18 +30,15 @@ namespace Genbox.HttpBuilders.Internal.Collections
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return new Enumerator(this);
+            return GetEnumerator();
         }
 
         public void Add(T item)
         {
             if (_array == null)
                 _array = new T[_growBy];
-            else
-            {
-                if (_array.Length < Count + 1)
-                    Array.Resize(ref _array, Count + _growBy);
-            }
+            else if (_array.Length < Count + 1)
+                Array.Resize(ref _array, Count + _growBy);
 
             if (Count > 0 && _comparer.Compare(item, _array[Count - 1]) < 0)
                 Sorted = false;
