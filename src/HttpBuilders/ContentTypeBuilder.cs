@@ -13,14 +13,14 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class ContentTypeBuilder : IHttpHeaderBuilder
     {
-        private string _boundary;
-        private string _charset;
-        private string _mediaType;
-        private StringBuilder _sb;
+        private string? _boundary;
+        private string? _charset;
+        private string? _mediaType;
+        private StringBuilder? _sb;
 
         public string HeaderName => "Content-Type";
 
-        public string Build()
+        public string? Build()
         {
             if (!HasData())
                 return null;
@@ -53,14 +53,14 @@ namespace Genbox.HttpBuilders
             return _mediaType != null;
         }
 
-        public void Set(string mediaType, string charset = null, string boundary = null)
+        public void Set(string mediaType, string? charset = null, string? boundary = null)
         {
             _mediaType = mediaType;
             _charset = charset;
             _boundary = boundary;
         }
 
-        public void Set(MediaType mediaType, Charset charset = Charset.Unknown, string boundary = null)
+        public void Set(MediaType mediaType, Charset charset = Charset.Unknown, string? boundary = null)
         {
             _mediaType = mediaType.GetMemberValue();
 

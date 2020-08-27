@@ -10,9 +10,9 @@ namespace Genbox.HttpBuilders.Internal.Collections
     {
         private readonly IComparer<T> _comparer;
         private readonly int _growBy;
-        private T[] _array;
+        private T[]? _array;
 
-        public ConstantGrowArray(int growBy, IComparer<T> comparer = null)
+        public ConstantGrowArray(int growBy, IComparer<T>? comparer = null)
         {
             _growBy = growBy;
             _comparer = comparer ?? Comparer<T>.Default;
@@ -21,7 +21,7 @@ namespace Genbox.HttpBuilders.Internal.Collections
         public int Count { get; private set; }
         internal bool Sorted { get; private set; }
 
-        public ref T this[int index] => ref _array[index];
+        public ref T this[int index] => ref _array![index];
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -57,7 +57,9 @@ namespace Genbox.HttpBuilders.Internal.Collections
 
         public void Clear()
         {
-            Array.Clear(_array, 0, _array.Length);
+            if (_array != null)
+                Array.Clear(_array, 0, _array.Length);
+
             Count = 0;
             Sorted = false;
         }
@@ -71,7 +73,7 @@ namespace Genbox.HttpBuilders.Internal.Collections
             {
                 _list = list;
                 _index = 0;
-                Current = default;
+                Current = default!;
             }
 
             public void Dispose()
@@ -82,9 +84,9 @@ namespace Genbox.HttpBuilders.Internal.Collections
             {
                 ConstantGrowArray<T> localList = _list;
 
-                if ((uint)_index < (uint)localList.Count)
+                if (_index < localList.Count)
                 {
-                    Current = localList._array[_index];
+                    Current = localList._array![_index];
                     _index++;
                     return true;
                 }
@@ -95,7 +97,7 @@ namespace Genbox.HttpBuilders.Internal.Collections
             private bool MoveNextRare()
             {
                 _index = _list.Count + 1;
-                Current = default;
+                Current = default!;
                 return false;
             }
 
@@ -108,14 +110,14 @@ namespace Genbox.HttpBuilders.Internal.Collections
                     if (_index == 0 || _index == _list.Count + 1)
                         throw new InvalidOperationException();
 
-                    return Current;
+                    return Current!;
                 }
             }
 
             void IEnumerator.Reset()
             {
                 _index = 0;
-                Current = default;
+                Current = default!;
             }
         }
     }

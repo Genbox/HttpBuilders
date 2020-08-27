@@ -7,7 +7,7 @@
 
         /// <summary>Builds the builder into a simple string, ready for use in a HTTP header.</summary>
         /// <returns>The formatted content of the builder. If the builder is not set, it returns null.</returns>
-        string Build();
+        string? Build();
 
         /// <summary>Call this method to reset the state of the builder</summary>
         void Reset();

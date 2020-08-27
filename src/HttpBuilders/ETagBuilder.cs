@@ -13,13 +13,13 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class ETagBuilder : IHttpHeaderBuilder
     {
-        private StringBuilder _sb;
-        private string _value;
+        private StringBuilder? _sb;
+        private string? _value;
         private bool _weak;
 
         public string HeaderName => "ETag";
 
-        public string Build()
+        public string? Build()
         {
             if (!HasData())
                 return null;

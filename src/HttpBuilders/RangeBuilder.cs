@@ -20,9 +20,9 @@ namespace Genbox.HttpBuilders
     public class RangeBuilder : IHttpHeaderBuilder
     {
         private int _invalidCount;
-        private BitArray _invalidIndex;
-        private ConstantGrowArray<Range> _ranges;
-        private StringBuilder _sb;
+        private BitArray? _invalidIndex;
+        private ConstantGrowArray<Range>? _ranges;
+        private StringBuilder? _sb;
 
         public RangeBuilder()
         {
@@ -38,7 +38,7 @@ namespace Genbox.HttpBuilders
 
         public string HeaderName => "Range";
 
-        public string Build()
+        public string? Build()
         {
             return Build("bytes");
         }
@@ -64,7 +64,7 @@ namespace Genbox.HttpBuilders
             return this;
         }
 
-        public string Build(string unit = "bytes", long dataSize = -1)
+        public string? Build(string unit, long dataSize = -1)
         {
             //RFC7233: A server that supports range requests MAY ignore or reject a Range header field that consists of more than two overlapping ranges
             //RFC7233: A client that is requesting multiple ranges SHOULD list those ranges in ascending order
@@ -83,9 +83,9 @@ namespace Genbox.HttpBuilders
 
             //We need an invalid index if we are going to report invalid ranges
             if (Options.Value.MergeOverlappingRanges || Options.Value.DiscardInvalidRanges)
-                _invalidIndex = new BitArray(_ranges.Count);
+                _invalidIndex = new BitArray(_ranges!.Count);
 
-            if (_ranges.Count > 1)
+            if (_ranges!.Count > 1)
             {
                 if (Options.Value.SortRanges || Options.Value.MergeOverlappingRanges)
                     _ranges.Sort();
@@ -166,7 +166,7 @@ namespace Genbox.HttpBuilders
         /// <summary>Only increase the invalid counter if we haven't already reported it.</summary>
         private void ReportInvalid(int index)
         {
-            if (_invalidIndex[index])
+            if (_invalidIndex![index])
                 return;
 
             _invalidIndex[index] = true;

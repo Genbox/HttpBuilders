@@ -17,8 +17,8 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class ContentDispositionBuilder : IHttpHeaderBuilder
     {
-        private string _filename;
-        private StringBuilder _sb;
+        private string? _filename;
+        private StringBuilder? _sb;
         private ContentDispositionType _type;
 
         public ContentDispositionBuilder()
@@ -35,7 +35,7 @@ namespace Genbox.HttpBuilders
 
         public string HeaderName => "Content-Disposition";
 
-        public string Build()
+        public string? Build()
         {
             if (!HasData())
                 return null;
@@ -67,7 +67,7 @@ namespace Genbox.HttpBuilders
             return _type != ContentDispositionType.Unknown;
         }
 
-        public void Set(ContentDispositionType type, string filename = null)
+        public void Set(ContentDispositionType type, string? filename = null)
         {
             if (type == ContentDispositionType.Attachment && filename == null)
                 throw new ArgumentException("You have to supply a filename", nameof(filename));

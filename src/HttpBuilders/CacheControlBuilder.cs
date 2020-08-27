@@ -12,13 +12,13 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class CacheControlBuilder : IHttpHeaderBuilder
     {
-        private StringBuilder _sb;
+        private StringBuilder? _sb;
         private int _seconds;
         private CacheControlType _type;
 
         public string HeaderName => "Cache-Control";
 
-        public string Build()
+        public string? Build()
         {
             if (!HasData())
                 return null;

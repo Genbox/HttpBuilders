@@ -50,8 +50,8 @@ namespace Genbox.HttpBuilders.Tests.Builders
         {
             foreach (IHttpHeaderBuilder builder in GetBuilders())
             {
-                string first = builder.Build();
-                string second = builder.Build();
+                string? first = builder.Build();
+                string? second = builder.Build();
 
                 Assert.Equal(first, second);
             }

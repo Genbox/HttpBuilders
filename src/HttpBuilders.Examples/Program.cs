@@ -38,7 +38,7 @@ namespace Genbox.HttpBuilders.Examples
                 client.DefaultRequestHeaders.Add(range.HeaderName, range.Build());
 
                 //We send the request to a website that echo the headers back to us in the response.
-                string echo = await client.GetStringAsync(new Uri("http://scooterlabs.com/echo"));
+                string echo = await client.GetStringAsync(new Uri("http://scooterlabs.com/echo")).ConfigureAwait(false);
 
                 //The response is written to the console
                 Console.WriteLine(echo);

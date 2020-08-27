@@ -17,8 +17,8 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class AcceptEncodingBuilder : IHttpHeaderBuilder
     {
-        private ConstantGrowArray<(AcceptEncodingType, float)> _encodings;
-        private StringBuilder _sb;
+        private ConstantGrowArray<(AcceptEncodingType, float)>? _encodings;
+        private StringBuilder? _sb;
 
         public AcceptEncodingBuilder()
         {
@@ -34,7 +34,7 @@ namespace Genbox.HttpBuilders
 
         public string HeaderName => "Accept-Encoding";
 
-        public string Build()
+        public string? Build()
         {
             if (!HasData())
                 return null;
@@ -44,7 +44,7 @@ namespace Genbox.HttpBuilders
             else
                 _sb.Clear();
 
-            for (int i = 0; i < _encodings.Count; i++)
+            for (int i = 0; i < _encodings!.Count; i++)
             {
                 (AcceptEncodingType type, float weight) = _encodings[i];
 

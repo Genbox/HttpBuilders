@@ -16,12 +16,12 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class ContentLanguageBuilder : IHttpHeaderBuilder
     {
-        private ConstantGrowArray<string> _languages;
-        private StringBuilder _sb;
+        private ConstantGrowArray<string>? _languages;
+        private StringBuilder? _sb;
 
         public string HeaderName => "Content-Language";
 
-        public string Build()
+        public string? Build()
         {
             if (!HasData())
                 return null;
@@ -31,7 +31,7 @@ namespace Genbox.HttpBuilders
             else
                 _sb.Clear();
 
-            _sb.AppendJoin(", ", _languages);
+            _sb.AppendJoin(", ", _languages!);
             return _sb.ToString();
         }
 
