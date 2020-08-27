@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.BuilderOptions;
@@ -51,7 +52,7 @@ namespace Genbox.HttpBuilders
                 _sb.Append(type.GetMemberValue());
 
                 if (!Options.Value.OmitDefaultWeight || Math.Abs(weight - 1.0f) > 0.00001f)
-                    _sb.Append(";q=").Append(weight);
+                    _sb.Append(";q=").Append(weight.ToString(NumberFormatInfo.InvariantInfo));
 
                 if (i < _encodings.Count - 1)
                     _sb.Append(", ");
