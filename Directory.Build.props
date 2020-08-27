@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <Authors>Ian Qvist</Authors>
-    <Copyright>Copyright 2019, by Ian Qvist. All rights reserved.</Copyright>
+    <Copyright>Copyright 2020, by Ian Qvist. All rights reserved.</Copyright>
     <Description>A strongly typed API for HTTP headers</Description>
-    <Version>0.1.0-alpha14</Version>
+    <Version>1.0.0</Version>
 
     <!-- Set copying files etc. to timeout faster -->
     <CopyRetryCount>2</CopyRetryCount>
