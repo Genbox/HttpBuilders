@@ -12,9 +12,7 @@
         /// <summary>Call this method to reset the state of the builder</summary>
         void Reset();
 
-        /// <summary>
-        /// Returns true if the builder contains data, otherwise it returns false.
-        /// </summary>
+        /// <summary>Returns true if the builder contains data, otherwise it returns false.</summary>
         bool HasData();
     }
 }

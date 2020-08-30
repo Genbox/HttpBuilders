@@ -76,9 +76,7 @@ namespace Genbox.HttpBuilders.Internal.Collections
                 Current = default!;
             }
 
-            public void Dispose()
-            {
-            }
+            public void Dispose() { }
 
             public bool MoveNext()
             {

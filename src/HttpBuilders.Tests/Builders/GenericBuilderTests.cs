@@ -42,7 +42,9 @@ namespace Genbox.HttpBuilders.Tests.Builders
         public void AllEmptyBuildersReturnNull()
         {
             foreach (IHttpHeaderBuilder builder in GetBuilders())
+            {
                 Assert.Null(builder.Build());
+            }
         }
 
         [Fact]
