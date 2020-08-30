@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Genbox.HttpBuilders.BuilderOptions;
@@ -16,8 +16,8 @@ namespace Genbox.HttpBuilders.Examples
             {
                 //Create a builder to the accept-encoding header. We need this to construct which encodings we would like to accept in the response.
                 AcceptEncodingBuilder acceptEncoding = new AcceptEncodingBuilder();
-                acceptEncoding.Add(AcceptEncodingType.Gzip);
-                acceptEncoding.Add(AcceptEncodingType.Compress, 0.5f);
+                acceptEncoding.Add(AcceptEncodingType.Identity, 0.5f);
+                acceptEncoding.Add(AcceptEncodingType.Compress, 0.1f);
 
                 //Add the Accept-Encoding header to the HttpClient
                 client.DefaultRequestHeaders.Add(acceptEncoding.HeaderName, acceptEncoding.Build());
