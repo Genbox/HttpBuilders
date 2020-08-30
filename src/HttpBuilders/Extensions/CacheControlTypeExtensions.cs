@@ -7,25 +7,17 @@ namespace Genbox.HttpBuilders.Extensions
     {
         public static string GetMemberValue(this CacheControlType type)
         {
-            switch (type)
+            return type switch
             {
-                case CacheControlType.MaxAge:
-                    return "max-age";
-                case CacheControlType.MaxStale:
-                    return "max-stale";
-                case CacheControlType.MinFresh:
-                    return "min-fresh";
-                case CacheControlType.NoCache:
-                    return "no-cache";
-                case CacheControlType.NoStore:
-                    return "no-store";
-                case CacheControlType.NoTransform:
-                    return "no-transform";
-                case CacheControlType.OnlyIfCached:
-                    return "only-if-cached";
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
+                CacheControlType.MaxAge => "max-age",
+                CacheControlType.MaxStale => "max-stale",
+                CacheControlType.MinFresh => "min-fresh",
+                CacheControlType.NoCache => "no-cache",
+                CacheControlType.NoStore => "no-store",
+                CacheControlType.NoTransform => "no-transform",
+                CacheControlType.OnlyIfCached => "only-if-cached",
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
         }
     }
 }

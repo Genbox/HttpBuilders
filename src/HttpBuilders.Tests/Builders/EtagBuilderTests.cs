@@ -4,7 +4,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class EtagBuilderTests
     {
-        private ETagBuilder CreateBuilder()
+        private static ETagBuilder CreateBuilder()
         {
             return new ETagBuilder();
         }

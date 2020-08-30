@@ -55,7 +55,7 @@ namespace Genbox.HttpBuilders
             _seconds = seconds;
         }
 
-        private void CheckOptionalArgument(CacheControlType type, int seconds)
+        private static void CheckOptionalArgument(CacheControlType type, int seconds)
         {
             if (seconds <= -1)
             {

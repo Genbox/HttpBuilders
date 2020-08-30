@@ -46,9 +46,7 @@ namespace Genbox.HttpBuilders
 
         public ContentEncodingBuilder Add(ContentEncodingType encoding)
         {
-            if (_encodings == null)
-                _encodings = new ConstantGrowArray<ContentEncodingType>(1);
-
+            _encodings ??= new ConstantGrowArray<ContentEncodingType>(1);
             _encodings.Add(encoding);
 
             return this;

@@ -52,9 +52,7 @@ namespace Genbox.HttpBuilders
 
         public ContentLanguageBuilder Add(string language)
         {
-            if (_languages == null)
-                _languages = new ConstantGrowArray<string>(1);
-
+            _languages ??= new ConstantGrowArray<string>(1);
             _languages.Add(language);
 
             return this;

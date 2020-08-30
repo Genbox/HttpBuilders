@@ -43,27 +43,6 @@ namespace Genbox.HttpBuilders
             return Build("bytes");
         }
 
-        public void Reset()
-        {
-            _ranges?.Clear();
-            _invalidIndex?.SetAll(false);
-        }
-
-        public bool HasData()
-        {
-            return _ranges != null && _ranges.Count > 0;
-        }
-
-        public RangeBuilder Add(long start, long end)
-        {
-            if (_ranges == null)
-                _ranges = new ConstantGrowArray<Range>(1, Range.Comparer);
-
-            _ranges.Add(new Range(start, end));
-
-            return this;
-        }
-
         public string? Build(string unit, long dataSize = -1)
         {
             //RFC7233: A server that supports range requests MAY ignore or reject a Range header field that consists of more than two overlapping ranges
@@ -105,7 +84,9 @@ namespace Genbox.HttpBuilders
                             ReportInvalid(i);
                         }
                         else
+                        {
                             pointer++;
+                        }
                     }
                 }
             }
@@ -154,13 +135,34 @@ namespace Genbox.HttpBuilders
                         _sb.Append(range.Start).Append('-').Append(range.End);
                 }
                 else
+                {
                     _sb.Append(range.Start).Append('-').Append(range.End);
+                }
 
                 if (i < _ranges.Count - 1 - _invalidCount)
                     _sb.Append(',');
             }
 
             return _sb.ToString();
+        }
+
+        public void Reset()
+        {
+            _ranges?.Clear();
+            _invalidIndex?.SetAll(false);
+        }
+
+        public bool HasData()
+        {
+            return _ranges != null && _ranges.Count > 0;
+        }
+
+        public RangeBuilder Add(long start, long end)
+        {
+            _ranges ??= new ConstantGrowArray<Range>(1, Range.Comparer);
+            _ranges.Add(new Range(start, end));
+
+            return this;
         }
 
         /// <summary>Only increase the invalid counter if we haven't already reported it.</summary>

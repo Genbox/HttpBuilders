@@ -8,7 +8,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class ContentDispositionBuilderTests
     {
-        private ContentDispositionBuilder CreateBuilder()
+        private static ContentDispositionBuilder CreateBuilder()
         {
             return new ContentDispositionBuilder(Options.Create(new ContentDispositionOptions
             {

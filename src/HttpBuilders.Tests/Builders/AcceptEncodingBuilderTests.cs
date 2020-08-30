@@ -7,7 +7,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class AcceptEncodingBuilderTests
     {
-        private AcceptEncodingBuilder CreateBuilder()
+        private static AcceptEncodingBuilder CreateBuilder()
         {
             return new AcceptEncodingBuilder(Options.Create(new AcceptEncodingOptions
             {

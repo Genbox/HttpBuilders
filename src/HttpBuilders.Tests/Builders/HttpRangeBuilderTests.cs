@@ -6,7 +6,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class HttpRangeBuilderTests
     {
-        private RangeBuilder CreateBuilder()
+        private static RangeBuilder CreateBuilder()
         {
             return new RangeBuilder(Options.Create(new RangeOptions
             {

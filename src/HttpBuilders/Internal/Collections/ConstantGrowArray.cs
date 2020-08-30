@@ -76,7 +76,10 @@ namespace Genbox.HttpBuilders.Internal.Collections
                 Current = default!;
             }
 
-            public void Dispose() { }
+            public void Dispose()
+            {
+                //Nothing to dispose in this enumerator
+            }
 
             public bool MoveNext()
             {

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Genbox.HttpBuilders.Internal
 {
-    internal struct Range
+    internal struct Range : IEquatable<Range>
     {
         private sealed class StartRelationalComparer : IComparer<Range>
         {

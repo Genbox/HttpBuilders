@@ -8,7 +8,7 @@ namespace Genbox.HttpBuilders.Tests.Builders
 {
     public class GenericBuilderTests
     {
-        private IEnumerable<IHttpHeaderBuilder> GetBuilders()
+        private static IEnumerable<IHttpHeaderBuilder> GetBuilders()
         {
             Type type = typeof(IHttpHeaderBuilder);
             Assembly assembly = type.Assembly;

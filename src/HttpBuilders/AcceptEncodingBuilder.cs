@@ -76,9 +76,7 @@ namespace Genbox.HttpBuilders
             if (weight < 0 || weight > 1)
                 throw new ArgumentException($"Invalid weight {weight}. It must be a value between 0 and 1 included.");
 
-            if (_encodings == null)
-                _encodings = new ConstantGrowArray<(AcceptEncodingType, float)>(1);
-
+            _encodings ??= new ConstantGrowArray<(AcceptEncodingType, float)>(1);
             _encodings.Add((encoding, weight));
 
             return this;

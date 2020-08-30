@@ -7,15 +7,12 @@ namespace Genbox.HttpBuilders.Extensions
     {
         public static string GetMemberValue(this ContentDispositionType type)
         {
-            switch (type)
+            return type switch
             {
-                case ContentDispositionType.Inline:
-                    return "inline";
-                case ContentDispositionType.Attachment:
-                    return "attachment";
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
+                ContentDispositionType.Inline => "inline",
+                ContentDispositionType.Attachment => "attachment",
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
         }
     }
 }

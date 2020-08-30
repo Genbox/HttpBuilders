@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Genbox.HttpBuilders.BuilderOptions;
@@ -7,9 +7,9 @@ using Microsoft.Extensions.Options;
 
 namespace Genbox.HttpBuilders.Examples
 {
-    internal class Program
+    internal static class Program
     {
-        private static async Task Main(string[] args)
+        private static async Task Main()
         {
             //Create a HttpClient
             using (HttpClient client = new HttpClient())
