@@ -48,7 +48,7 @@ namespace Genbox.HttpBuilders
             return _value != null;
         }
 
-        public void Set(string value, bool weak = false)
+        public void Set(string? value, bool weak = false)
         {
             _value = value;
             _weak = weak;
