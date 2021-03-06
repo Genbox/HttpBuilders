@@ -4,7 +4,6 @@
     <Authors>Ian Qvist</Authors>
     <Copyright>Copyright 2020, by Ian Qvist. All rights reserved.</Copyright>
     <Description>A strongly typed API for HTTP headers</Description>
-    <Version>1.0.2</Version>
 
     <!-- Set copying files etc. to timeout faster -->
     <CopyRetryCount>2</CopyRetryCount>
@@ -28,6 +27,10 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MinVer" Version="2.4.0" PrivateAssets="all"/>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="all" />
