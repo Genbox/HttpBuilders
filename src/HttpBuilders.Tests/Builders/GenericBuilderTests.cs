@@ -34,7 +34,12 @@ namespace Genbox.HttpBuilders.Tests.Builders
                 if (type.ContainsGenericParameters)
                     continue;
 
-                yield return (IHttpHeaderBuilder)Activator.CreateInstance(exportedType);
+                IHttpHeaderBuilder? builder = (IHttpHeaderBuilder?)Activator.CreateInstance(exportedType);
+
+                if (builder == null)
+                    throw new InvalidOperationException("Could not create an instance of the type " + exportedType);
+
+                yield return builder;
             }
         }
 
