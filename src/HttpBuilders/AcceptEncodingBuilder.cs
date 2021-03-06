@@ -18,7 +18,28 @@ namespace Genbox.HttpBuilders
     /// </summary>
     public class AcceptEncodingBuilder : IHttpHeaderBuilder
     {
-        private ConstantGrowArray<(AcceptEncodingType, float)>? _encodings;
+        private struct Pair : IComparable<Pair>
+        {
+            public Pair(AcceptEncodingType type, float weight)
+            {
+                Type = type;
+                Weight = weight;
+            }
+
+            public AcceptEncodingType Type { get; }
+            public float Weight { get; }
+
+            public int CompareTo(Pair other)
+            {
+                int typeComparison = Type.CompareTo(other.Type);
+                if (typeComparison != 0)
+                    return typeComparison;
+                return Weight.CompareTo(other.Weight);
+            }
+        }
+
+
+        private ConstantGrowArray<Pair>? _encodings;
         private StringBuilder? _sb;
 
         public AcceptEncodingBuilder()
@@ -47,12 +68,12 @@ namespace Genbox.HttpBuilders
 
             for (int i = 0; i < _encodings!.Count; i++)
             {
-                (AcceptEncodingType type, float weight) = _encodings[i];
+                Pair pair = _encodings[i];
 
-                _sb.Append(type.GetMemberValue());
+                _sb.Append(pair.Type.GetMemberValue());
 
-                if (!Options.Value.OmitDefaultWeight || Math.Abs(weight - 1.0f) > 0.00001f)
-                    _sb.Append(";q=").Append(weight.ToString(NumberFormatInfo.InvariantInfo));
+                if (!Options.Value.OmitDefaultWeight || Math.Abs(pair.Weight - 1.0f) > 0.00001f)
+                    _sb.Append(";q=").Append(pair.Weight.ToString(NumberFormatInfo.InvariantInfo));
 
                 if (i < _encodings.Count - 1)
                     _sb.Append(", ");
@@ -76,8 +97,8 @@ namespace Genbox.HttpBuilders
             if (weight < 0 || weight > 1)
                 throw new ArgumentException($"Invalid weight {weight}. It must be a value between 0 and 1 included.");
 
-            _encodings ??= new ConstantGrowArray<(AcceptEncodingType, float)>(1);
-            _encodings.Add((encoding, weight));
+            _encodings ??= new ConstantGrowArray<Pair>(1);
+            _encodings.Add(new Pair(encoding, weight));
 
             return this;
         }
