@@ -66,8 +66,6 @@
 
   <!--Analyzers for library projects only-->
   <ItemGroup Condition="('$(BuildingInsideVisualStudio)' == 'true' OR '$(BuildingByReSharper)' == 'true') and !($(MSBuildProjectName.EndsWith('.Tests')) or $(MSBuildProjectName.Contains('.Benchmarks')) or $(MSBuildProjectName.Contains('.Examples')))">
-    <PackageReference Include="ConfigureAwaitChecker.Analyzer" Version="5.0.0.1" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.3" PrivateAssets="all" />
     <PackageReference Include="IDisposableAnalyzers" Version="4.0.2" PrivateAssets="all" />
     <PackageReference Include="Roslynator.Analyzers" Version="4.2.0" PrivateAssets="all" />
     <PackageReference Include="ToStringWithoutOverrideAnalyzer" Version="0.6.0" PrivateAssets="all" />
@@ -84,6 +82,15 @@
     <PackageReference Include="Meziantou.Analyzer" Version="1.0.757" PrivateAssets="all" />
     <PackageReference Include="NetFabric.Hyperlinq.Analyzer" Version="2.0.4" PrivateAssets="all" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.51.0.59060" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' AND ('$(BuildingInsideVisualStudio)' == 'true' OR '$(BuildingByReSharper)' == 'true')">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition="('$(BuildingInsideVisualStudio)' == 'true' OR '$(BuildingByReSharper)' == 'true') and !($(MSBuildProjectName.EndsWith('.Tests')) or $(MSBuildProjectName.Contains('.Benchmarks')) or $(MSBuildProjectName.Contains('.Examples')))">
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.3" PrivateAssets="all" />
+    <PackageReference Include="ConfigureAwaitChecker.Analyzer" Version="5.0.0.1" PrivateAssets="all" />
   </ItemGroup>
 
   <!--Only analyze when using Visual Studio-->
