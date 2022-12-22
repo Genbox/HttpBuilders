@@ -21,15 +21,10 @@ internal class ConstantGrowArray<T> : IEnumerable<T>
 
     public ref T this[int index] => ref _array![index];
 
-    public IEnumerator<T> GetEnumerator()
-    {
-        return new Enumerator(this);
-    }
+    public Enumerator GetEnumerator() => new Enumerator(this);
+    IEnumerator<T> IEnumerable<T>.GetEnumerator() => new Enumerator(this);
+    IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
 
     public void Add(T item)
     {
@@ -62,7 +57,7 @@ internal class ConstantGrowArray<T> : IEnumerable<T>
         Sorted = false;
     }
 
-    private struct Enumerator : IEnumerator<T>
+    internal struct Enumerator : IEnumerator<T>
     {
         private readonly ConstantGrowArray<T> _list;
         private int _index;
@@ -102,16 +97,7 @@ internal class ConstantGrowArray<T> : IEnumerable<T>
 
         public T Current { get; private set; }
 
-        object IEnumerator.Current
-        {
-            get
-            {
-                if (_index == 0 || _index == _list.Count + 1)
-                    throw new IndexOutOfRangeException(_index + " is out of range");
-
-                return Current!;
-            }
-        }
+        object IEnumerator.Current => Current!;
 
         void IEnumerator.Reset()
         {

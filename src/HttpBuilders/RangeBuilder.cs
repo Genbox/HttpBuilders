@@ -50,7 +50,7 @@ public class RangeBuilder : IHttpHeaderBuilder
         //We do a couple of things here:
         //1. We merge ranges that overlap
         //2. We sort the ranges in ascending order to ease the work for the server
-        //3. We shorten the range 
+        //3. We shorten the range
         //4. We skip (and log) invalid ranges
 
         if (!HasData())
@@ -79,7 +79,7 @@ public class RangeBuilder : IHttpHeaderBuilder
 
                     if (current.Start <= previous.End)
                     {
-                        previous.End = Math.Max(previous.End, current.End);
+                        previous = new Range(previous.Start, Math.Max(previous.End, current.End));
                         ReportInvalid(i);
                     }
                     else

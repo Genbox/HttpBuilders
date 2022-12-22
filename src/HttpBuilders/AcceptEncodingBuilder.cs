@@ -74,7 +74,7 @@ public class AcceptEncodingBuilder : IHttpHeaderBuilder
     public AcceptEncodingBuilder Add(AcceptEncodingType encoding, float weight = 1.0f)
     {
         if (weight < 0 || weight > 1)
-            throw new ArgumentException($"Invalid weight {weight}. It must be a value between 0 and 1 included.");
+            throw new ArgumentException("Invalid value. It must be a value between 0 and 1 included.", nameof(weight));
 
         _encodings ??= new ConstantGrowArray<Pair>(1);
         _encodings.Add(new Pair(encoding, weight));

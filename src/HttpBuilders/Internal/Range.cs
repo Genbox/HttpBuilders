@@ -1,6 +1,9 @@
-﻿namespace Genbox.HttpBuilders.Internal;
+using System.Runtime.InteropServices;
 
-internal struct Range : IEquatable<Range>
+namespace Genbox.HttpBuilders.Internal;
+
+[StructLayout(LayoutKind.Auto)]
+internal readonly record struct Range(long Start, long End)
 {
     private sealed class StartRelationalComparer : IComparer<Range>
     {
@@ -12,32 +15,8 @@ internal struct Range : IEquatable<Range>
 
     public static IComparer<Range> Comparer { get; } = new StartRelationalComparer();
 
-    public Range(long start, long end)
-    {
-        Start = start;
-        End = end;
-    }
-
-    public bool Equals(Range other)
-    {
-        return Start == other.Start && End == other.End;
-    }
-
-    public override bool Equals(object obj)
-    {
-        return obj is Range other && Equals(other);
-    }
-
-    public override int GetHashCode()
-    {
-        unchecked
-        {
-            return (Start.GetHashCode() * 397) ^ End.GetHashCode();
-        }
-    }
-
-    public long Start { get; }
-    public long End { get; set; }
+    public long Start { get; } = Start;
+    public long End { get; } = End;
 
     public override string ToString()
     {

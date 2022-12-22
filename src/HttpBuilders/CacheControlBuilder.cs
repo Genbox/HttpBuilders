@@ -1,4 +1,5 @@
-﻿using System.Text;
+using System.Runtime.InteropServices;
+using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
 using Genbox.HttpBuilders.Extensions;
@@ -85,8 +86,12 @@ public class CacheControlBuilder : IHttpHeaderBuilder
         }
     }
 
-    private record struct CacheTuple(CacheControlType Type, int Seconds) : IComparable<CacheTuple>
+    [StructLayout(LayoutKind.Auto)]
+    private readonly record struct CacheTuple(CacheControlType Type, int Seconds) : IComparable<CacheTuple>
     {
+        public CacheControlType Type { get; } = Type;
+        public int Seconds { get; } = Seconds;
+
         public int CompareTo(CacheTuple other)
         {
             int typeComparison = Type.CompareTo(other.Type);
