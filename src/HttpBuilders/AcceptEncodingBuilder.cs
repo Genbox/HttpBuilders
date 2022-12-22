@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.BuilderOptions;
@@ -17,27 +18,6 @@ namespace Genbox.HttpBuilders;
 /// </summary>
 public class AcceptEncodingBuilder : IHttpHeaderBuilder
 {
-    private struct Pair : IComparable<Pair>
-    {
-        public Pair(AcceptEncodingType type, float weight)
-        {
-            Type = type;
-            Weight = weight;
-        }
-
-        public AcceptEncodingType Type { get; }
-        public float Weight { get; }
-
-        public int CompareTo(Pair other)
-        {
-            int typeComparison = Type.CompareTo(other.Type);
-            if (typeComparison != 0)
-                return typeComparison;
-            return Weight.CompareTo(other.Weight);
-        }
-    }
-
-
     private ConstantGrowArray<Pair>? _encodings;
     private StringBuilder? _sb;
 
@@ -100,5 +80,20 @@ public class AcceptEncodingBuilder : IHttpHeaderBuilder
         _encodings.Add(new Pair(encoding, weight));
 
         return this;
+    }
+
+    [StructLayout(LayoutKind.Auto)]
+    private readonly record struct Pair(AcceptEncodingType Type, float Weight) : IComparable<Pair>
+    {
+        public AcceptEncodingType Type { get; } = Type;
+        public float Weight { get; } = Weight;
+
+        public int CompareTo(Pair other)
+        {
+            int typeComparison = Type.CompareTo(other.Type);
+            if (typeComparison != 0)
+                return typeComparison;
+            return Weight.CompareTo(other.Weight);
+        }
     }
 }

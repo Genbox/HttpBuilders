@@ -2,6 +2,7 @@
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
 using Genbox.HttpBuilders.Extensions;
+using Genbox.HttpBuilders.Internal.Collections;
 
 namespace Genbox.HttpBuilders;
 
@@ -12,8 +13,7 @@ namespace Genbox.HttpBuilders;
 public class CacheControlBuilder : IHttpHeaderBuilder
 {
     private StringBuilder? _sb;
-    private int _seconds;
-    private CacheControlType _type;
+    private ConstantGrowArray<CacheTuple>? _cacheTuples;
 
     public string HeaderName => "Cache-Control";
 
@@ -27,31 +27,37 @@ public class CacheControlBuilder : IHttpHeaderBuilder
         else
             _sb.Clear();
 
-        _sb.Append(_type.GetMemberValue());
+        for (int i = 0; i < _cacheTuples!.Count; i++)
+        {
+            CacheTuple tuple = _cacheTuples[i];
+            _sb.Append(tuple.Type.GetMemberValue());
 
-        if (_seconds > -1)
-            _sb.Append('=').Append(_seconds);
+            if (tuple.Seconds > -1)
+                _sb.Append('=').Append(tuple.Seconds);
+
+            if (i < _cacheTuples.Count - 1)
+                _sb.Append(',');
+        }
 
         return _sb.ToString();
     }
 
     public void Reset()
     {
-        _seconds = -1;
-        _type = CacheControlType.Unknown;
+        _cacheTuples?.Clear();
     }
 
     public bool HasData()
     {
-        return _type != CacheControlType.Unknown;
+        return _cacheTuples != null && _cacheTuples.Count > 0;
     }
 
-    public void Set(CacheControlType type, int seconds = -1)
+    public void Add(CacheControlType type, int seconds = -1)
     {
         CheckOptionalArgument(type, seconds);
 
-        _type = type;
-        _seconds = seconds;
+        _cacheTuples ??= new ConstantGrowArray<CacheTuple>(1);
+        _cacheTuples.Add(new CacheTuple(type, seconds));
     }
 
     private static void CheckOptionalArgument(CacheControlType type, int seconds)
@@ -76,6 +82,19 @@ public class CacheControlBuilder : IHttpHeaderBuilder
                 case CacheControlType.OnlyIfCached:
                     throw new ArgumentException("You supplied seconds to a cache type that does not support it", nameof(type));
             }
+        }
+    }
+
+    private record struct CacheTuple(CacheControlType Type, int Seconds) : IComparable<CacheTuple>
+    {
+        public int CompareTo(CacheTuple other)
+        {
+            int typeComparison = Type.CompareTo(other.Type);
+
+            if (typeComparison != 0)
+                return typeComparison;
+
+            return Seconds.CompareTo(other.Seconds);
         }
     }
 }
