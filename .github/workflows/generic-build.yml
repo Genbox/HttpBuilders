@@ -1,0 +1,16 @@
+name: Generic build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core 7.0
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '7.0.x'
+    - name: Build
+      run: dotnet build -c Release src/HttpBuilders.sln
