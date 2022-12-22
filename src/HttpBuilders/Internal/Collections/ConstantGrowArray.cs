@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 
 namespace Genbox.HttpBuilders.Internal.Collections;
 
@@ -109,7 +107,7 @@ internal class ConstantGrowArray<T> : IEnumerable<T>
             get
             {
                 if (_index == 0 || _index == _list.Count + 1)
-                    throw new InvalidOperationException();
+                    throw new IndexOutOfRangeException(_index + " is out of range");
 
                 return Current!;
             }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
 using Genbox.HttpBuilders.Extensions;

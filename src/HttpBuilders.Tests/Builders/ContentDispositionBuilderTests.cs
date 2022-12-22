@@ -1,5 +1,4 @@
-﻿using System;
-using Genbox.HttpBuilders.BuilderOptions;
+﻿using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Enums;
 using Microsoft.Extensions.Options;
 using Xunit;

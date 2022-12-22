@@ -1,4 +1,3 @@
-using System;
 using System.Globalization;
 using System.Text;
 using Genbox.HttpBuilders.Abstracts;

@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Text;
 using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;

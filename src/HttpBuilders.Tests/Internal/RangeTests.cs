@@ -1,5 +1,5 @@
-﻿using Genbox.HttpBuilders.Internal;
-using Xunit;
+﻿using Xunit;
+using Range = Genbox.HttpBuilders.Internal.Range;
 
 namespace Genbox.HttpBuilders.Tests.Internal;
 

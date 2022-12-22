@@ -1,5 +1,4 @@
-﻿using System;
-using Genbox.HttpBuilders.Enums;
+﻿using Genbox.HttpBuilders.Enums;
 
 namespace Genbox.HttpBuilders.Extensions;
 

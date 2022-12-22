@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Genbox.HttpBuilders.BuilderOptions;
+﻿using Genbox.HttpBuilders.BuilderOptions;
 using Genbox.HttpBuilders.Enums;
 using Microsoft.Extensions.Options;
 

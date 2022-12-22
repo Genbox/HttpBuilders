@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Genbox.HttpBuilders.Internal;
+﻿namespace Genbox.HttpBuilders.Internal;
 
 internal struct Range : IEquatable<Range>
 {
