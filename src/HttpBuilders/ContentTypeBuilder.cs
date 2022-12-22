@@ -3,71 +3,70 @@ using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
 using Genbox.HttpBuilders.Extensions;
 
-namespace Genbox.HttpBuilders
+namespace Genbox.HttpBuilders;
+
+/// <summary>
+/// The Content-Type entity header is used to indicate the media type of the resource. In responses, a Content-Type header tells the client what
+/// the content type of the returned content actually is. Browsers will do MIME sniffing in some cases and will not necessarily follow the value of this
+/// header; to prevent this behavior, the header X-Content-Type-Options can be set to nosniff. For more info, see
+/// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
+/// </summary>
+public class ContentTypeBuilder : IHttpHeaderBuilder
 {
-    /// <summary>
-    /// The Content-Type entity header is used to indicate the media type of the resource. In responses, a Content-Type header tells the client what
-    /// the content type of the returned content actually is. Browsers will do MIME sniffing in some cases and will not necessarily follow the value of this
-    /// header; to prevent this behavior, the header X-Content-Type-Options can be set to nosniff. For more info, see
-    /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
-    /// </summary>
-    public class ContentTypeBuilder : IHttpHeaderBuilder
+    private string? _boundary;
+    private string? _charset;
+    private string? _mediaType;
+    private StringBuilder? _sb;
+
+    public string HeaderName => "Content-Type";
+
+    public string? Build()
     {
-        private string? _boundary;
-        private string? _charset;
-        private string? _mediaType;
-        private StringBuilder? _sb;
+        if (!HasData())
+            return null;
 
-        public string HeaderName => "Content-Type";
+        if (_sb == null)
+            _sb = new StringBuilder(25);
+        else
+            _sb.Clear();
 
-        public string? Build()
-        {
-            if (!HasData())
-                return null;
+        _sb.Append(_mediaType);
 
-            if (_sb == null)
-                _sb = new StringBuilder(25);
-            else
-                _sb.Clear();
+        if (_charset != null)
+            _sb.Append("; charset=").Append(_charset);
 
-            _sb.Append(_mediaType);
+        if (_boundary != null)
+            _sb.Append("; boundary=").Append(_boundary);
 
-            if (_charset != null)
-                _sb.Append("; charset=").Append(_charset);
+        return _sb.ToString();
+    }
 
-            if (_boundary != null)
-                _sb.Append("; boundary=").Append(_boundary);
+    public void Reset()
+    {
+        _mediaType = null;
+        _boundary = null;
+        _mediaType = null;
+    }
 
-            return _sb.ToString();
-        }
+    public bool HasData()
+    {
+        return _mediaType != null;
+    }
 
-        public void Reset()
-        {
-            _mediaType = null;
-            _boundary = null;
-            _mediaType = null;
-        }
+    public void Set(string mediaType, string? charset = null, string? boundary = null)
+    {
+        _mediaType = mediaType;
+        _charset = charset;
+        _boundary = boundary;
+    }
 
-        public bool HasData()
-        {
-            return _mediaType != null;
-        }
+    public void Set(MediaType mediaType, Charset charset = Charset.Unknown, string? boundary = null)
+    {
+        _mediaType = mediaType.GetMemberValue();
 
-        public void Set(string mediaType, string? charset = null, string? boundary = null)
-        {
-            _mediaType = mediaType;
-            _charset = charset;
-            _boundary = boundary;
-        }
+        if (charset != Charset.Unknown)
+            _charset = charset.GetMemberValue();
 
-        public void Set(MediaType mediaType, Charset charset = Charset.Unknown, string? boundary = null)
-        {
-            _mediaType = mediaType.GetMemberValue();
-
-            if (charset != Charset.Unknown)
-                _charset = charset.GetMemberValue();
-
-            _boundary = boundary;
-        }
+        _boundary = boundary;
     }
 }

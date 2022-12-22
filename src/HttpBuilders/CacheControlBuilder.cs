@@ -4,79 +4,78 @@ using Genbox.HttpBuilders.Abstracts;
 using Genbox.HttpBuilders.Enums;
 using Genbox.HttpBuilders.Extensions;
 
-namespace Genbox.HttpBuilders
+namespace Genbox.HttpBuilders;
+
+/// <summary>
+/// The "Cache-Control" header field is used to specify directives for caches along the request/response chain. For more info, see
+/// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+/// </summary>
+public class CacheControlBuilder : IHttpHeaderBuilder
 {
-    /// <summary>
-    /// The "Cache-Control" header field is used to specify directives for caches along the request/response chain. For more info, see
-    /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
-    /// </summary>
-    public class CacheControlBuilder : IHttpHeaderBuilder
+    private StringBuilder? _sb;
+    private int _seconds;
+    private CacheControlType _type;
+
+    public string HeaderName => "Cache-Control";
+
+    public string? Build()
     {
-        private StringBuilder? _sb;
-        private int _seconds;
-        private CacheControlType _type;
+        if (!HasData())
+            return null;
 
-        public string HeaderName => "Cache-Control";
+        if (_sb == null)
+            _sb = new StringBuilder(25);
+        else
+            _sb.Clear();
 
-        public string? Build()
+        _sb.Append(_type.GetMemberValue());
+
+        if (_seconds > -1)
+            _sb.Append('=').Append(_seconds);
+
+        return _sb.ToString();
+    }
+
+    public void Reset()
+    {
+        _seconds = -1;
+        _type = CacheControlType.Unknown;
+    }
+
+    public bool HasData()
+    {
+        return _type != CacheControlType.Unknown;
+    }
+
+    public void Set(CacheControlType type, int seconds = -1)
+    {
+        CheckOptionalArgument(type, seconds);
+
+        _type = type;
+        _seconds = seconds;
+    }
+
+    private static void CheckOptionalArgument(CacheControlType type, int seconds)
+    {
+        if (seconds <= -1)
         {
-            if (!HasData())
-                return null;
-
-            if (_sb == null)
-                _sb = new StringBuilder(25);
-            else
-                _sb.Clear();
-
-            _sb.Append(_type.GetMemberValue());
-
-            if (_seconds > -1)
-                _sb.Append('=').Append(_seconds);
-
-            return _sb.ToString();
-        }
-
-        public void Reset()
-        {
-            _seconds = -1;
-            _type = CacheControlType.Unknown;
-        }
-
-        public bool HasData()
-        {
-            return _type != CacheControlType.Unknown;
-        }
-
-        public void Set(CacheControlType type, int seconds = -1)
-        {
-            CheckOptionalArgument(type, seconds);
-
-            _type = type;
-            _seconds = seconds;
-        }
-
-        private static void CheckOptionalArgument(CacheControlType type, int seconds)
-        {
-            if (seconds <= -1)
+            switch (type)
             {
-                switch (type)
-                {
-                    case CacheControlType.MaxAge:
-                    case CacheControlType.MaxStale:
-                    case CacheControlType.MinFresh:
-                        throw new ArgumentException("You must supply an argument in seconds", nameof(type));
-                }
+                case CacheControlType.MaxAge:
+                case CacheControlType.MaxStale:
+                case CacheControlType.MinFresh:
+                    throw new ArgumentException("You must supply an argument in seconds", nameof(type));
             }
-            else
+        }
+        else
+        {
+            switch (type)
             {
-                switch (type)
-                {
-                    case CacheControlType.NoCache:
-                    case CacheControlType.NoStore:
-                    case CacheControlType.NoTransform:
-                    case CacheControlType.OnlyIfCached:
-                        throw new ArgumentException("You supplied seconds to a cache type that does not support it", nameof(type));
-                }
+                case CacheControlType.NoCache:
+                case CacheControlType.NoStore:
+                case CacheControlType.NoTransform:
+                case CacheControlType.OnlyIfCached:
+                    throw new ArgumentException("You supplied seconds to a cache type that does not support it", nameof(type));
             }
         }
     }

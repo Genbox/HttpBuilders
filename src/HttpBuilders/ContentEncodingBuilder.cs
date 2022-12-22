@@ -6,50 +6,49 @@ using Genbox.HttpBuilders.Extensions;
 using Genbox.HttpBuilders.Internal.Collections;
 using Genbox.HttpBuilders.Internal.Extensions;
 
-namespace Genbox.HttpBuilders
+namespace Genbox.HttpBuilders;
+
+/// <summary>
+/// The Content-Encoding entity header is used to compress the media-type. When present, its value indicates which encodings were applied to the
+/// entity-body. It lets the client know how to decode in order to obtain the media-type referenced by the Content-Type header. For more info, see
+/// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
+/// </summary>
+public class ContentEncodingBuilder : IHttpHeaderBuilder
 {
-    /// <summary>
-    /// The Content-Encoding entity header is used to compress the media-type. When present, its value indicates which encodings were applied to the
-    /// entity-body. It lets the client know how to decode in order to obtain the media-type referenced by the Content-Type header. For more info, see
-    /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
-    /// </summary>
-    public class ContentEncodingBuilder : IHttpHeaderBuilder
+    private ConstantGrowArray<ContentEncodingType>? _encodings;
+    private StringBuilder? _sb;
+
+    public string HeaderName => "Content-Encoding";
+
+    public string? Build()
     {
-        private ConstantGrowArray<ContentEncodingType>? _encodings;
-        private StringBuilder? _sb;
+        if (!HasData())
+            return null;
 
-        public string HeaderName => "Content-Encoding";
+        if (_sb == null)
+            _sb = new StringBuilder(25);
+        else
+            _sb.Clear();
 
-        public string? Build()
-        {
-            if (!HasData())
-                return null;
+        _sb.AppendJoin(", ", _encodings!.Select(x => x.GetMemberValue()));
+        return _sb.ToString();
+    }
 
-            if (_sb == null)
-                _sb = new StringBuilder(25);
-            else
-                _sb.Clear();
+    public void Reset()
+    {
+        _encodings?.Clear();
+    }
 
-            _sb.AppendJoin(", ", _encodings!.Select(x => x.GetMemberValue()));
-            return _sb.ToString();
-        }
+    public bool HasData()
+    {
+        return _encodings != null && _encodings.Count > 0;
+    }
 
-        public void Reset()
-        {
-            _encodings?.Clear();
-        }
+    public ContentEncodingBuilder Add(ContentEncodingType encoding)
+    {
+        _encodings ??= new ConstantGrowArray<ContentEncodingType>(1);
+        _encodings.Add(encoding);
 
-        public bool HasData()
-        {
-            return _encodings != null && _encodings.Count > 0;
-        }
-
-        public ContentEncodingBuilder Add(ContentEncodingType encoding)
-        {
-            _encodings ??= new ConstantGrowArray<ContentEncodingType>(1);
-            _encodings.Add(encoding);
-
-            return this;
-        }
+        return this;
     }
 }
