@@ -1,0 +1,410 @@
+﻿#nullable enable
+Genbox.HttpBuilders.Abstracts.IHttpHeaderBuilder
+Genbox.HttpBuilders.Abstracts.IHttpHeaderBuilder.Build() -> string?
+Genbox.HttpBuilders.Abstracts.IHttpHeaderBuilder.HasData() -> bool
+Genbox.HttpBuilders.Abstracts.IHttpHeaderBuilder.HeaderName.get -> string?
+Genbox.HttpBuilders.Abstracts.IHttpHeaderBuilder.Reset() -> void
+Genbox.HttpBuilders.AcceptEncodingBuilder
+Genbox.HttpBuilders.AcceptEncodingBuilder.AcceptEncodingBuilder() -> void
+Genbox.HttpBuilders.AcceptEncodingBuilder.AcceptEncodingBuilder(Microsoft.Extensions.Options.IOptions<Genbox.HttpBuilders.BuilderOptions.AcceptEncodingOptions!>! options) -> void
+Genbox.HttpBuilders.AcceptEncodingBuilder.Add(Genbox.HttpBuilders.Enums.AcceptEncodingType encoding, float weight = 1) -> Genbox.HttpBuilders.AcceptEncodingBuilder!
+Genbox.HttpBuilders.AcceptEncodingBuilder.Build() -> string?
+Genbox.HttpBuilders.AcceptEncodingBuilder.HasData() -> bool
+Genbox.HttpBuilders.AcceptEncodingBuilder.HeaderName.get -> string!
+Genbox.HttpBuilders.AcceptEncodingBuilder.Options.get -> Microsoft.Extensions.Options.IOptions<Genbox.HttpBuilders.BuilderOptions.AcceptEncodingOptions!>!
+Genbox.HttpBuilders.AcceptEncodingBuilder.Reset() -> void
+Genbox.HttpBuilders.BuilderOptions.AcceptEncodingOptions
+Genbox.HttpBuilders.BuilderOptions.AcceptEncodingOptions.AcceptEncodingOptions() -> void
+Genbox.HttpBuilders.BuilderOptions.AcceptEncodingOptions.OmitDefaultWeight.get -> bool
+Genbox.HttpBuilders.BuilderOptions.AcceptEncodingOptions.OmitDefaultWeight.set -> void
+Genbox.HttpBuilders.BuilderOptions.ContentDispositionOptions
+Genbox.HttpBuilders.BuilderOptions.ContentDispositionOptions.ContentDispositionOptions() -> void
+Genbox.HttpBuilders.BuilderOptions.ContentDispositionOptions.OmitDefaultDisposition.get -> bool
+Genbox.HttpBuilders.BuilderOptions.ContentDispositionOptions.OmitDefaultDisposition.set -> void
+Genbox.HttpBuilders.BuilderOptions.ContentDispositionOptions.UseExtendedFilename.get -> bool
+Genbox.HttpBuilders.BuilderOptions.ContentDispositionOptions.UseExtendedFilename.set -> void
+Genbox.HttpBuilders.BuilderOptions.RangeOptions
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.DiscardInvalidRanges.get -> bool
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.DiscardInvalidRanges.set -> void
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.MergeOverlappingRanges.get -> bool
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.MergeOverlappingRanges.set -> void
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.RangeOptions() -> void
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.ShortenRanges.get -> bool
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.ShortenRanges.set -> void
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.SortRanges.get -> bool
+Genbox.HttpBuilders.BuilderOptions.RangeOptions.SortRanges.set -> void
+Genbox.HttpBuilders.CacheControlBuilder
+Genbox.HttpBuilders.CacheControlBuilder.Add(Genbox.HttpBuilders.Enums.CacheControlType type, int seconds = -1) -> void
+Genbox.HttpBuilders.CacheControlBuilder.Build() -> string?
+Genbox.HttpBuilders.CacheControlBuilder.CacheControlBuilder() -> void
+Genbox.HttpBuilders.CacheControlBuilder.HasData() -> bool
+Genbox.HttpBuilders.CacheControlBuilder.HeaderName.get -> string!
+Genbox.HttpBuilders.CacheControlBuilder.Reset() -> void
+Genbox.HttpBuilders.ContentDispositionBuilder
+Genbox.HttpBuilders.ContentDispositionBuilder.Build() -> string?
+Genbox.HttpBuilders.ContentDispositionBuilder.ContentDispositionBuilder() -> void
+Genbox.HttpBuilders.ContentDispositionBuilder.ContentDispositionBuilder(Microsoft.Extensions.Options.IOptions<Genbox.HttpBuilders.BuilderOptions.ContentDispositionOptions!>! options) -> void
+Genbox.HttpBuilders.ContentDispositionBuilder.HasData() -> bool
+Genbox.HttpBuilders.ContentDispositionBuilder.HeaderName.get -> string!
+Genbox.HttpBuilders.ContentDispositionBuilder.Options.get -> Microsoft.Extensions.Options.IOptions<Genbox.HttpBuilders.BuilderOptions.ContentDispositionOptions!>!
+Genbox.HttpBuilders.ContentDispositionBuilder.Reset() -> void
+Genbox.HttpBuilders.ContentDispositionBuilder.Set(Genbox.HttpBuilders.Enums.ContentDispositionType type, string? filename = null) -> void
+Genbox.HttpBuilders.ContentEncodingBuilder
+Genbox.HttpBuilders.ContentEncodingBuilder.Add(Genbox.HttpBuilders.Enums.ContentEncodingType encoding) -> Genbox.HttpBuilders.ContentEncodingBuilder!
+Genbox.HttpBuilders.ContentEncodingBuilder.Build() -> string?
+Genbox.HttpBuilders.ContentEncodingBuilder.ContentEncodingBuilder() -> void
+Genbox.HttpBuilders.ContentEncodingBuilder.HasData() -> bool
+Genbox.HttpBuilders.ContentEncodingBuilder.HeaderName.get -> string!
+Genbox.HttpBuilders.ContentEncodingBuilder.Reset() -> void
+Genbox.HttpBuilders.ContentLanguageBuilder
+Genbox.HttpBuilders.ContentLanguageBuilder.Add(Genbox.HttpBuilders.Enums.Language language) -> Genbox.HttpBuilders.ContentLanguageBuilder!
+Genbox.HttpBuilders.ContentLanguageBuilder.Add(string! language) -> Genbox.HttpBuilders.ContentLanguageBuilder!
+Genbox.HttpBuilders.ContentLanguageBuilder.Build() -> string?
+Genbox.HttpBuilders.ContentLanguageBuilder.ContentLanguageBuilder() -> void
+Genbox.HttpBuilders.ContentLanguageBuilder.HasData() -> bool
+Genbox.HttpBuilders.ContentLanguageBuilder.HeaderName.get -> string!
+Genbox.HttpBuilders.ContentLanguageBuilder.Reset() -> void
+Genbox.HttpBuilders.ContentTypeBuilder
+Genbox.HttpBuilders.ContentTypeBuilder.Build() -> string?
+Genbox.HttpBuilders.ContentTypeBuilder.ContentTypeBuilder() -> void
+Genbox.HttpBuilders.ContentTypeBuilder.HasData() -> bool
+Genbox.HttpBuilders.ContentTypeBuilder.HeaderName.get -> string!
+Genbox.HttpBuilders.ContentTypeBuilder.Reset() -> void
+Genbox.HttpBuilders.ContentTypeBuilder.Set(Genbox.HttpBuilders.Enums.MediaType mediaType, Genbox.HttpBuilders.Enums.Charset charset = Genbox.HttpBuilders.Enums.Charset.Unknown, string? boundary = null) -> void
+Genbox.HttpBuilders.ContentTypeBuilder.Set(string! mediaType, string? charset = null, string? boundary = null) -> void
+Genbox.HttpBuilders.Enums.AcceptEncodingType
+Genbox.HttpBuilders.Enums.AcceptEncodingType.Any = 6 -> Genbox.HttpBuilders.Enums.AcceptEncodingType
+Genbox.HttpBuilders.Enums.AcceptEncodingType.Brotli = 5 -> Genbox.HttpBuilders.Enums.AcceptEncodingType
+Genbox.HttpBuilders.Enums.AcceptEncodingType.Compress = 2 -> Genbox.HttpBuilders.Enums.AcceptEncodingType
+Genbox.HttpBuilders.Enums.AcceptEncodingType.Deflate = 3 -> Genbox.HttpBuilders.Enums.AcceptEncodingType
+Genbox.HttpBuilders.Enums.AcceptEncodingType.Gzip = 1 -> Genbox.HttpBuilders.Enums.AcceptEncodingType
+Genbox.HttpBuilders.Enums.AcceptEncodingType.Identity = 4 -> Genbox.HttpBuilders.Enums.AcceptEncodingType
+Genbox.HttpBuilders.Enums.AcceptEncodingType.Unknown = 0 -> Genbox.HttpBuilders.Enums.AcceptEncodingType
+Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.Immutable = 14 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.MaxAge = 1 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.MaxStale = 2 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.MinFresh = 3 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.MustRevalidate = 9 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.MustUnderstand = 11 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.NoCache = 5 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.NoStore = 6 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.NoTransform = 7 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.OnlyIfCached = 8 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.Private = 12 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.ProxyRevalidate = 10 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.Public = 13 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.SMaxAge = 4 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.StaleIfError = 16 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.StaleWhileRevalidate = 15 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.CacheControlType.Unknown = 0 -> Genbox.HttpBuilders.Enums.CacheControlType
+Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Big5 = 1 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Euc_jp = 2 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Euc_kr = 3 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Gb18030 = 5 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Gb2312 = 4 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Gbk = 6 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_2022_jp = 7 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_1 = 8 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_10 = 17 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_11 = 18 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_15 = 19 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_2 = 9 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_3 = 10 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_4 = 11 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_5 = 12 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_6 = 13 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_7 = 14 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_8 = 15 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Iso_8859_9 = 16 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Shift_jis = 20 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Tis_620 = 21 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Unknown = 0 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Utf_16 = 24 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Utf_16be = 25 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Utf_16le = 26 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Utf_32 = 27 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Utf_7 = 22 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Utf_8 = 23 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1250 = 30 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1251 = 31 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1252 = 32 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1253 = 33 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1254 = 34 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1255 = 35 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1256 = 36 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1257 = 37 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_1258 = 38 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_874 = 28 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.Charset.Windows_949 = 29 -> Genbox.HttpBuilders.Enums.Charset
+Genbox.HttpBuilders.Enums.ContentDispositionType
+Genbox.HttpBuilders.Enums.ContentDispositionType.Attachment = 2 -> Genbox.HttpBuilders.Enums.ContentDispositionType
+Genbox.HttpBuilders.Enums.ContentDispositionType.Inline = 1 -> Genbox.HttpBuilders.Enums.ContentDispositionType
+Genbox.HttpBuilders.Enums.ContentDispositionType.Unknown = 0 -> Genbox.HttpBuilders.Enums.ContentDispositionType
+Genbox.HttpBuilders.Enums.ContentEncodingType
+Genbox.HttpBuilders.Enums.ContentEncodingType.Brotli = 5 -> Genbox.HttpBuilders.Enums.ContentEncodingType
+Genbox.HttpBuilders.Enums.ContentEncodingType.Compress = 2 -> Genbox.HttpBuilders.Enums.ContentEncodingType
+Genbox.HttpBuilders.Enums.ContentEncodingType.Deflate = 3 -> Genbox.HttpBuilders.Enums.ContentEncodingType
+Genbox.HttpBuilders.Enums.ContentEncodingType.Gzip = 1 -> Genbox.HttpBuilders.Enums.ContentEncodingType
+Genbox.HttpBuilders.Enums.ContentEncodingType.Identity = 4 -> Genbox.HttpBuilders.Enums.ContentEncodingType
+Genbox.HttpBuilders.Enums.ContentEncodingType.Unknown = 0 -> Genbox.HttpBuilders.Enums.ContentEncodingType
+Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Abkhazian = 2 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Afar = 1 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Afrikaans = 4 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Akan = 5 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Albanian = 147 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Amharic = 6 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Arabic = 8 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Aragonese = 7 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Armenian = 63 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Assamese = 9 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Avaric = 10 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Avestan = 3 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Aymara = 11 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Azerbaijani = 12 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Bambara = 18 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Bashkir = 13 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Basque = 42 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Belarusian = 14 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Bengali = 19 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Bihari = 16 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Bislama = 17 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Bosnian = 22 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Breton = 21 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Bulgarian = 15 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Burmese = 108 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Catalan = 23 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.CentralKhmer = 81 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Chamorro = 25 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Chechen = 24 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Chichewa = 119 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Chinese = 181 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.ChurchSlavic = 29 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Chuvash = 30 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Cornish = 88 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Corsican = 26 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Cree = 27 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Croatian = 60 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Czech = 28 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Danish = 32 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Divehi = 34 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.DutchFlemish = 114 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Dzongkha = 35 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.English = 38 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Esperanto = 39 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Estonian = 41 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Ewe = 36 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Faroese = 47 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Fijian = 46 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Finnish = 45 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.French = 48 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Frisian = 49 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Fulah = 44 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Gaelic = 51 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Galician = 52 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Ganda = 92 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Georgian = 75 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.German = 33 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.GreekModern = 37 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Guarani = 53 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Gujarati = 54 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Haitian = 61 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Hausa = 56 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Hebrew = 57 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Herero = 64 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Hindi = 58 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.HiriMotu = 59 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Hungarian = 62 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Icelandic = 70 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Ido = 69 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Igbo = 66 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Indonesian = 65 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Inuktitut = 72 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Inupiaq = 68 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Irish = 50 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Italian = 71 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Japanese = 73 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Javanese = 74 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kalaallisut = 80 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kannada = 82 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kanuri = 84 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kashmiri = 85 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kazakh = 79 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kikuyu = 77 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kinyarwanda = 135 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kirghiz = 89 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Komi = 87 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kongo = 76 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Korean = 83 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kuanyama = 78 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Kurdish = 86 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Lao = 95 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Latin = 90 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Latvian = 98 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Limburgan = 93 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Lingala = 94 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Lithuanian = 96 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.LubaKatanga = 97 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Luxembourgish = 91 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Macedonian = 102 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Malagasy = 99 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Malay = 106 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Malayalam = 103 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Maltese = 107 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Manx = 55 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Maori = 101 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Marathi = 105 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Marshallese = 100 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Mongolian = 104 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Nauru = 109 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Navajo = 118 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.NdebeleNorth = 111 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.NdebeleSouth = 117 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Ndonga = 113 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Nepali = 112 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Norwegian = 116 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.NorwegianBokmål = 110 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.NorwegianNynorsk = 115 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Occitan = 120 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Ojibwa = 121 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Oriya = 123 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Oromo = 122 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Ossetian = 124 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Pali = 126 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Panjabi = 125 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Persian = 43 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Polish = 127 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Portuguese = 129 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Pushto = 128 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Quechua = 130 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Romanian = 133 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Romansh = 131 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Rundi = 132 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Russian = 134 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Sami = 139 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Samoan = 144 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Sango = 140 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Sanskrit = 136 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Sardinian = 137 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Serbian = 148 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Shona = 145 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.SichuanYi = 67 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Sindhi = 138 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Sinhala = 141 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Slovak = 142 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Slovenian = 143 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Somali = 146 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Sotho = 150 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Spanish = 40 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Sundanese = 151 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Swahili = 153 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Swati = 149 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Swedish = 152 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tagalog = 160 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tahitian = 167 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tajik = 156 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tamil = 154 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tatar = 165 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Telugu = 155 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Thai = 157 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tibetan = 20 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tigrinya = 158 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tonga = 162 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tsonga = 164 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Tswana = 161 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Turkish = 163 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Turkmen = 159 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Twi = 166 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Uighur = 168 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Ukrainian = 169 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Unknown = 0 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Urdu = 170 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Uzbek = 171 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Venda = 172 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Vietnamese = 173 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Volapük = 174 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Walloon = 175 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Welsh = 31 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Wolof = 176 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Xhosa = 177 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Yiddish = 178 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Yoruba = 179 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Zhuang = 180 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.Language.Zulu = 182 -> Genbox.HttpBuilders.Enums.Language
+Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_gzip = 1 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_json = 2 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_msword = 3 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_octetstream = 4 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_ogg = 5 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_pdf = 6 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_php = 7 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_rtf = 8 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_xml = 9 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Application_zip = 10 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_3gpp = 11 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_3gpp2 = 12 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_aac = 13 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_midi = 14 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_mpeg = 15 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_ogg = 16 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_opus = 17 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_wav = 18 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Audio_webm = 19 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Font_otf = 20 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Font_ttf = 21 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Font_woff = 22 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Font_woff2 = 23 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Image_bmp = 24 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Image_gif = 25 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Image_jpeg = 26 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Image_png = 27 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Image_tiff = 28 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Image_webp = 29 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Text_calendar = 30 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Text_css = 31 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Text_csv = 32 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Text_html = 33 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Text_javascript = 34 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Text_plain = 35 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Text_xml = 36 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Unknown = 0 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Video_3gpp = 37 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Video_3gpp2 = 38 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Video_mp2t = 39 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Video_mpeg = 40 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Video_ogg = 41 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.Enums.MediaType.Video_webm = 42 -> Genbox.HttpBuilders.Enums.MediaType
+Genbox.HttpBuilders.ETagBuilder
+Genbox.HttpBuilders.ETagBuilder.Build() -> string?
+Genbox.HttpBuilders.ETagBuilder.ETagBuilder() -> void
+Genbox.HttpBuilders.ETagBuilder.HasData() -> bool
+Genbox.HttpBuilders.ETagBuilder.HeaderName.get -> string!
+Genbox.HttpBuilders.ETagBuilder.Reset() -> void
+Genbox.HttpBuilders.ETagBuilder.Set(string? value, bool weak = false) -> void
+Genbox.HttpBuilders.Extensions.AcceptEncodingTypeExtensions
+Genbox.HttpBuilders.Extensions.CacheControlTypeExtensions
+Genbox.HttpBuilders.Extensions.CharsetExtensions
+Genbox.HttpBuilders.Extensions.ContentDispositionTypeExtensions
+Genbox.HttpBuilders.Extensions.ContentEncodingTypeExtensions
+Genbox.HttpBuilders.Extensions.LanguageExtensions
+Genbox.HttpBuilders.Extensions.MediaTypeExtensions
+Genbox.HttpBuilders.RangeBuilder
+Genbox.HttpBuilders.RangeBuilder.Add(long start, long end) -> Genbox.HttpBuilders.RangeBuilder!
+Genbox.HttpBuilders.RangeBuilder.Build() -> string?
+Genbox.HttpBuilders.RangeBuilder.Build(string! unit, long dataSize = -1) -> string?
+Genbox.HttpBuilders.RangeBuilder.HasData() -> bool
+Genbox.HttpBuilders.RangeBuilder.HeaderName.get -> string!
+Genbox.HttpBuilders.RangeBuilder.Options.get -> Microsoft.Extensions.Options.IOptions<Genbox.HttpBuilders.BuilderOptions.RangeOptions!>!
+Genbox.HttpBuilders.RangeBuilder.RangeBuilder() -> void
+Genbox.HttpBuilders.RangeBuilder.RangeBuilder(Microsoft.Extensions.Options.IOptions<Genbox.HttpBuilders.BuilderOptions.RangeOptions!>! options) -> void
+Genbox.HttpBuilders.RangeBuilder.Reset() -> void
+static Genbox.HttpBuilders.Extensions.AcceptEncodingTypeExtensions.GetMemberValue(this Genbox.HttpBuilders.Enums.AcceptEncodingType type) -> string!
+static Genbox.HttpBuilders.Extensions.CacheControlTypeExtensions.GetMemberValue(this Genbox.HttpBuilders.Enums.CacheControlType type) -> string!
+static Genbox.HttpBuilders.Extensions.CharsetExtensions.GetMemberValue(this Genbox.HttpBuilders.Enums.Charset charset) -> string!
+static Genbox.HttpBuilders.Extensions.ContentDispositionTypeExtensions.GetMemberValue(this Genbox.HttpBuilders.Enums.ContentDispositionType type) -> string!
+static Genbox.HttpBuilders.Extensions.ContentEncodingTypeExtensions.GetMemberValue(this Genbox.HttpBuilders.Enums.ContentEncodingType type) -> string!
+static Genbox.HttpBuilders.Extensions.LanguageExtensions.GetMemberValue(this Genbox.HttpBuilders.Enums.Language language) -> string!
+static Genbox.HttpBuilders.Extensions.MediaTypeExtensions.GetMemberValue(this Genbox.HttpBuilders.Enums.MediaType type) -> string!
